@@ -1,0 +1,9 @@
+---
+# SSL Information
+country: "US"
+state: "Arizona"
+locality: "Tucson"
+
+# "-join my.other.node1:8091,my.other.node2:8091"
+influxdb_opts: ""
+influx_telegraf_db_name: "telegraf"
