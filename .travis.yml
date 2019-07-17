@@ -1,0 +1,15 @@
+---
+language: minimal
+matrix:
+  include:
+    - env: TEST=yamllint
+      services:
+        - docker
+      script: ./tests/yamllint.sh
+
+    - env: TEST=markdownlint
+      services:
+        - docker
+      script: ./tests/mdl.sh
+notifications:
+  email: false
