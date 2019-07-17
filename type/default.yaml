@@ -1,0 +1,46 @@
+---
+ts_sal::sal_network_interface: "eth1"
+
+telegraf::inputs:
+  cpu:
+    - percpu: true
+      totalcpu: true
+      collect_cpu_time: false
+      report_active: false
+  disk:
+    - ignore_fs:
+        - "tmpfs"
+        - "devtmpfs"
+        - "devfs"
+  diskio: [{}]
+  kernel: [{}]
+  mem: [{}]
+  processes: [{}]
+  swap: [{}]
+  system: [{}]
+  internal:
+    collect_memstats: true
+  kernel_vmstat: [{}]
+  linux_sysctl_fs: [{}]
+  netstat: [{}]
+  nstat: [{}]
+  puppetagent:
+    location: "/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"
+  io: [{}]
+  net: [{}]
+
+# This must be the name of the SystemD service name
+# It will use telegraf procstat plugin to monitor each systemd unit listed
+monitored_services:
+  - firewalld
+  - puppet
+  - sssd
+  - chronyd
+  - NetworkManager
+
+# Making sure that you can configure further inputs in lower hierachies
+lookup_options:
+  monitored_services:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
