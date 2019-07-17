@@ -1,0 +1,25 @@
+---
+# Puppet Configurations
+#####################################################
+
+r10k_org: "lsst.org"
+r10k_hiera_org: "lsst_hiera"
+
+dns_alt_names: "gs-puppet-master.cp.cl.lsst.org,puppet-master.cp.cl.lsst.org"
+
+puppet_master_certname: "puppet-master.cp.cl.lsst.org"
+
+autosign_servers:
+  - "cl.lsst.org"
+  - "us.lsst.org"
+  - "cp.cl.lsst.org"
+
+control_repo: "https://github.com/LSST-IT/lsst-itconf"
+hiera_repo: "git@github.com:LSST-IT/puppet-hiera.git"
+
+# ssh keys, because of git and libbsh versions, needs to be the same as the key for root.
+# https://github.com/puppetlabs/r10k/issues/804
+hiera_repo_id_path: "/root/.ssh/id_rsa"
+
+monitored_services:
+  - "puppetserver"
