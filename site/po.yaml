@@ -1,0 +1,51 @@
+---
+motd: "Server installed on Tucson, add your custom message here\n"
+ntp:
+  ntp_server_1: "0.us.pool.ntp.org"
+  ntp_server_2: "1.us.pool.ntp.org"
+  ntp_server_3: "2.us.pool.ntp.org"
+
+puppet_agent_run_interval: 3600
+puppet_agent_service_state: "running"
+puppet_master_server: "puppet-master.us.lsst.org"
+
+firewalld_status: "running"
+
+#=============================================================================
+# Monitoring Configuration
+#=============================================================================
+# Remote Logging and Graylog Configuration
+#=============================================================================
+rsyslog_host: "gs-graylog-node-01.po.us.lsst.org"
+rsyslog_port: "5514"
+rsyslog_proto: "udp"
+rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
+
+#=============================================================================
+# Telegraf common configuration
+
+monitoring_enabled: true
+telegraf::global_tags:
+  service: "%{::service}"
+  cluster: "%{::cluster}"
+  device: "%{::device}"
+  service_number: "%{::service_number}"
+  device_number: "%{::device_number}"
+  node_name: "%{::node_name}"
+  datacenter: "%{::datacenter}"
+  enclave: "%{::enclave}"
+  country: "%{::country}"
+  room: "%{::room}"
+  rack: "%{::rack}"
+  type: "%{::virtual}"
+telegraf::interval: "1m"
+telegraf::round_interval: true
+telegraf::metric_batch_size: 1000
+telegraf::metric_buffer_limit: 10000
+telegraf::collection_jitter: "0s"
+telegraf::flush_interval: "1m"
+telegraf::flush_jitter: "0m"
+telegraf::debug: false
+telegraf::quiet: false
+telegraf::hostname: ""
+telegraf::omit_hostname: false
