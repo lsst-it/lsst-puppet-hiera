@@ -1,7 +1,4 @@
 ---
-# Puppet Configurations
-#####################################################
-
 r10k_org: "lsst.org"
 r10k_hiera_org: "lsst_hiera"
 
