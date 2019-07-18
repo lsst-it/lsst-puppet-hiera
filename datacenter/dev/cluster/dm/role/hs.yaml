@@ -1,0 +1,53 @@
+---
+# The name of the package may or may not include the version, if version not
+# provided, latest is assumed.
+headerservice::sal_dependency_list:
+  - "ATHeaderService-3.9.0"
+  - "ATCamera-3.9.0"
+  - "ATArchiver-3.9.0"
+  - "EFD-3.9.0"
+  - "Scheduler-3.9.0"
+  - "ATPtg-3.9.0"
+  - "ATMCS-3.9.0"
+  - "ATSpectrograph-3.9.0"
+  - "ATTCS-3.9.0"
+# New variables for setup.env
+# Beware that if you use /opt/lsst dir, that won't exist until the sal
+# dependency is installed. Etc is a more generic place to install
+headerservice::setup_env_path: '/etc/setup_sal.env'
+headerservice::setup_env_content: |
+  export LSST_SDK_INSTALL=/opt/lsst/ts_sal
+  export OSPL_HOME=/opt/OpenSpliceDDS/V6.9.0/HDE/x86_64.linux
+  export PATH=${LSST_SDK_INSTALL}/bin:${PATH}
+  export PYTHONPATH=$PYTHONPATH:${LSST_SDK_INSTALL}/lib
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${LSST_SDK_INSTALL}/lib
+  export TS_SAL_DIR=$LSST_SDK_INSTALL
+  export TS_XML_DIR=$LSST_SDK_INSTALL/../ts_xml
+  source $OSPL_HOME/release.com
+headerservice::lsst_sal_repo_url: https://project.lsst.org/ts/lsstrepo/
+ts_sal::sal_network_interface: "eth1"
+monitoring_enabled: false
+firewalld_status: "stopped"
+firewalld_status: "stopped"
+headerservice::header_service_www_output:
+  - /opt/www
+  - /opt/www/DMHS_filerepo
+headerservice::header_service_repo_path: /opt/lsst/repos/HeaderService
+headerservice::header_service_install_path: /opt/lsst/HeaderService
+headerservice::header_service_current_tag: tickets/DM-17937
+headerservice::header_service_repo: https://github.com/lsst-dm/HeaderService.git
+headerservice::salpytools_repo_path: /opt/lsst/repos/salpytools
+headerservice::salpytools_install_path: /opt/lsst/salpytools
+headerservice::salpytools_current_tag: tickets/DM-16255
+headerservice::salpytools_git_repo: https://github.com/lsst-dm/salpytools.git
+headerservice::lsst_software_install: /opt/lsst
+headerservice::lsst_software_repo: /opt/lsst/repos
+headerservice::fitsio_source: https://github.com/menanteau/fitsio/archive/DMHSv0.1.tar.gz
+headerservice::fitsio_filename:  fitsio-DMHSv0.1
+headerservice::lsst_python:
+  version: "3.6"
+  # This should be updated using the version
+  major: "3"
+  lib_path: "lib64"
+  package: python36
+  path: /bin/python3
