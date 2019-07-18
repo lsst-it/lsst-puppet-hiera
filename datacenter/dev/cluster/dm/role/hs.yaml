@@ -28,7 +28,6 @@ headerservice::lsst_sal_repo_url: https://project.lsst.org/ts/lsstrepo/
 ts_sal::sal_network_interface: "eth1"
 monitoring_enabled: false
 firewalld_status: "stopped"
-firewalld_status: "stopped"
 headerservice::header_service_www_output:
   - /opt/www
   - /opt/www/DMHS_filerepo
@@ -43,7 +42,7 @@ headerservice::salpytools_git_repo: https://github.com/lsst-dm/salpytools.git
 headerservice::lsst_software_install: /opt/lsst
 headerservice::lsst_software_repo: /opt/lsst/repos
 headerservice::fitsio_source: https://github.com/menanteau/fitsio/archive/DMHSv0.1.tar.gz
-headerservice::fitsio_filename:  fitsio-DMHSv0.1
+headerservice::fitsio_filename: fitsio-DMHSv0.1
 headerservice::lsst_python:
   version: "3.6"
   # This should be updated using the version
