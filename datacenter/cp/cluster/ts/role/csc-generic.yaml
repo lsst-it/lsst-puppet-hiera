@@ -1,0 +1,13 @@
+---
+ts_xml::ts_xml_subsystems:
+  - "Environment"
+  - "Electrometer"
+  - "ATDome"
+
+# Note that as for SAL 3.8.40, html needs to go first
+ts_xml::ts_xml_languages:
+  - "html"
+  - "cpp"
+  - "python"
+
+ts_xml::ts_sal_path: "%{lookup('ts_sal::ts_sal_path')}"

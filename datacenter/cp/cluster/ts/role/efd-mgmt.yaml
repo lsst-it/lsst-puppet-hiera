@@ -1,0 +1,22 @@
+---
+monitored_services:
+  - "efd_ndb_mgmd_tier1"
+  - "efd_ndb_mgmd_tier2"
+  - "efd_ndb_mgmd_tier3"
+
+firewalld::ports:
+  'Management tier1':
+    ensure: present
+    zone: public
+    port: 1186
+    protocol: 'tcp'
+  'Management tier2':
+    ensure: present
+    zone: public
+    port: 1187
+    protocol: 'tcp'
+  'Management tier3':
+    ensure: present
+    zone: public
+    port: 1188
+    protocol: 'tcp'
