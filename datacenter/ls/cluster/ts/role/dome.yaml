@@ -1,0 +1,11 @@
+---
+ts::ts_dome::labview_version: "2015"
+ts::ts_dome::ts_xml_subsystems:
+  - "dome"
+  - "domeADB"
+  - "domeLWS"
+ts::ts_dome::ts_xml_languages:
+  - "cpp"
+  - "html"
+  - "python"
+ts_sal::sal_network_interface: "eth1"

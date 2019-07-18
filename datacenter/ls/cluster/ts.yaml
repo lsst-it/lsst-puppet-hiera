@@ -1,0 +1,4 @@
+---
+ts::ts_visit_simulator::sal_network_interface: "ens224"
+ts::ts_visit_simulator::branch: "develop"
+ts::ts:visit_simulator::path: "/opt/ts_visit_simulator"

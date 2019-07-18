@@ -1,0 +1,12 @@
+---
+visitsim::ts_xml_subsystems:
+  - "dome"
+  - "rotator"
+  - "camera"
+  - "hexapod"
+  - "MTMount"
+  - "m2ms"
+visitsim::ts_xml_languages:
+  - "cpp"
+ts_sal::sal_network_interface: "eth1"
+monitoring_enabled: false
