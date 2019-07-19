@@ -9,14 +9,11 @@ autosign_servers:
 control_repo: "https://github.com/LSST-IT/lsst-itconf"
 # XXX broken as we need to handle both a public and private hiera repo - JCH
 hiera_repo: "git@github.com:LSST-IT/lsst-puppet-hiera.git"
-
-puppet_enc_repo: https://github.com/LSST-IT/puppet-enc.git
-puppet_enc_branch: master
-puppet_enc_path: '/etc/puppetlabs/code/enc/'
-
-puppet_enc_config_repo: https://github.com/LSST-IT/po_puppet_nodes_database.git
-puppet_enc_config_branch: master
-
+puppet_enc_repo: "https://github.com/LSST-IT/puppet-enc.git"
+puppet_enc_branch: "master"
+puppet_enc_path: "/etc/puppetlabs/code/enc/"
+puppet_enc_config_repo: "https://github.com/LSST-IT/po_puppet_nodes_database.git"
+puppet_enc_config_branch: "master"
 # ssh keys, because of git and libbsh versions, needs to be the same as the
 # key for root.
 # https://github.com/puppetlabs/r10k/issues/804

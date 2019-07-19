@@ -17,7 +17,6 @@
 # InfluxDB Slave                : 139.229.160.241 (Not deployed yet)
 # Grafana                       : 139.229.162.105
 # Puppet Master                 : 139.229.160.239 (Not deployed yet)
-
 motd: |
   ___   ___ ___ _____
   | |  / __/ __|_   _|
@@ -28,78 +27,67 @@ motd: |
   Server installed in Rack %{::rack}, Room %{::room}
   Syslog messages sent to graylog, metrics to influxdb
   Any questions or suggestions forward it to IT.
-
 ntp:
   ntp_server_1: "ntp.shoa.cl"
   ntp_server_2: "1.cl.pool.ntp.org"
   ntp_server_3: "1.south-america.pool.ntp.org"
-
 puppet_agent_run_interval: 3600
-
 puppet_master_server: "puppet-master.cl.lsst.org"
 puppet_agent_service_state: "running"
-
 firewalld_status: "running"
 lsst_firewall_default_zone: "public"
 lsst_firewall_default_target: "DROP"
 lsst_firewall_default_sources:
-  - 139.229.160.0/24
-  - 139.229.162.0/24
-
-#=============================================================================
+  - "139.229.160.0/24"
+  - "139.229.162.0/24"
 # Monitoring Configuration
-#=============================================================================
 # Remote Logging and Graylog Configuration
-#=============================================================================
 rsyslog_host: "139.229.136.244"
 rsyslog_port: "5514"
 rsyslog_proto: "udp"
 rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
-
 rsyslog::client::global_config:
   workDirectory:
-    value: '/var/log'
+    value: "/var/log"
   maxMessageSize:
-    value: '64k'
+    value: "64k"
   preserveFQDN:
     value: "on"
-
 rsyslog::client::actions:
   primary_log_server:
-    type: omfwd
+    type: "omfwd"
     facility: "*.*;auth,authpriv.none"
     config:
       Target: "gs-graylog-node-01.cp.cl.lsst.org"
       Port: 5514
       Protocol: "udp"
   backup_log_server:
-    type: omfwd
+    type: "omfwd"
     facility: "*.*;auth,authpriv.none"
     config:
       Target: "gs-graylog-node-01.ls.cl.lsst.org"
       Port: 5514
       Protocol: "udp"
   all_logs_local:
-    type: omfile
+    type: "omfwd"
     facility: "*.*;auth,authpriv.none"
     config:
       file: "/var/log/messages"
   mail_logs:
-    type: omfile
+    type: "omfwd"
     facility: "mail.*"
     config:
       file: "-/var/log/maillog"
   cron_logs:
-    type: omfile
+    type: "omfwd"
     facility: "cron.*"
     config:
       file: "/var/log/cron"
   boot_logs:
-    type: omfile
+    type: "omfwd"
     facility: "local7.*"
     config:
       file: "-/var/log/boot.log"
-
 rsyslog::client::modules:
   imuxsock: {}
   imjournal:
@@ -113,12 +101,8 @@ rsyslog::client::modules:
   imfile:
     config:
       PollingInterval: 10
-
-#=============================================================================
 # Telegraf common configuration
-
 monitoring_enabled: true
-
 telegraf::global_tags:
   service: "%{::service}"
   cluster: "%{::cluster}"
@@ -143,11 +127,9 @@ telegraf::debug: false
 telegraf::quiet: false
 telegraf::hostname: ""
 telegraf::omit_hostname: false
-
 # Sal custom configuration
 ts_sal::lsst_users_home_dir: "/home"
 ts_sal::firewall_dds_zone_name: "lsst_zone"
-
 ts_sal::ts_sal_path: "/opt/ts_sal"
 ts_sal::ts_opensplice_path: "/opt/ts_opensplice"
 ts_sal::ts_sal_repo: "https://github.com/lsst-ts/ts_sal.git"
@@ -157,13 +139,11 @@ ts_sal::ts_opensplice_branch: "master"
 ts_sal::ts_python_build_version: "3.6m"
 ts_sal::ts_python_build_location: "/usr/"
 ts_sal::ts_pythonpath: "/usr/lib/python3.6/site-packages/"
-
 ts_xml::ts_xml_path: "/opt/ts_xml"
 ts_xml::ts_xml_repo: "https://github.com/lsst-ts/ts_xml.git"
 ts_xml::ts_xml_branch: "v3.8.38"
 ts_xml::ts_xml_build_dir: "build"
 ts_xml::ts_xml_user: "salmgr"
 ts_xml::ts_xml_group: "lsst"
-
-#Make sure SAL uses the desired network interface
+# Make sure SAL uses the desired network interface
 ts_sal::sal_network_interface: "p2p1"

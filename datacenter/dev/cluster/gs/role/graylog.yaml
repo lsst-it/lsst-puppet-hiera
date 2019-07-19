@@ -3,46 +3,46 @@ elasticsearch_xms: "2048m"
 elasticsearch_xmx: "2048m"
 graylog_java_opts: "-Xms1g -Xmx1g -XX:NewRatio=1 -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:+UseParNewGC -XX:-OmitStackTraceInFastThrow"
 # SSL Certificate variables
-country: CL
-state: Coquimbo
+country: "CL"
+state: "Coquimbo"
 locality: "La Serena"
 organization: "LSST"
-division: IT
+division: "IT"
 canonical_name: "10.0.0.253"  # Also used to decide the URL for Graylog's web
-server_ip_address: 10.0.0.253
+server_ip_address: "10.0.0.253"
 alternative_dns_1: "graylog.cl.lsst.org"
 certificate_duration: 3650
 ssl_key_algorithm: "rsa:2048"
 # firewall configuration
 firewalld::zones:
   internal:
-    ensure: present
-    target: 'DROP'
+    ensure: "present"
+    target: "DROP"
     sources:
-      - 192.168.255.0/29
+      - "192.168.255.0/29"
 firewalld::ports:
-  'Opening port for Graylog service':
-    ensure: present
-    zone: public
+  "Opening port for Graylog service":
+    ensure: "present"
+    zone: "public"
     port: 9000
-    protocol: 'tcp'
-  'Opening port for Syslog in public zone':
-    ensure: present
-    zone: public
+    protocol: "tcp"
+  "Opening port for Syslog in public zone":
+    ensure: "present"
+    zone: "public"
     port: 5514
-    protocol: 'udp'
-  'Opening port for pfsense in public zone':
-    ensure: present
-    zone: public
+    protocol: "udp"
+  "Opening port for pfsense in public zone":
+    ensure: "present"
+    zone: "public"
     port: 6514
-    protocol: 'udp'
-  'Opening port for Syslog':
-    ensure: present
-    zone: internal
+    protocol: "udp"
+  "Opening port for Syslog":
+    ensure: "present"
+    zone: "internal"
     port: 5514
-    protocol: 'udp'
-  'Opening port for pfsense':
-    ensure: present
-    zone: internal
+    protocol: "udp"
+  "Opening port for pfsense":
+    ensure: "present"
+    zone: "internal"
     port: 6514
-    protocol: 'udp'
+    protocol: "udp"

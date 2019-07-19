@@ -42,5 +42,5 @@ monitored_services:
 lookup_options:
   monitored_services:
     merge:
-      strategy: deep
+      strategy: "deep"
       merge_hash_arrays: true

@@ -1,2 +1,2 @@
 ---
-mongodb::globals::version: '3.6.13'
+mongodb::globals::version: "3.6.13"

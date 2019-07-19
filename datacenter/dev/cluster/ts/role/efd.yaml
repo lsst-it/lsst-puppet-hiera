@@ -1,35 +1,24 @@
 ---
-# EFD Writers configuration
-#####################################################
 efd::efd_writers::lsst_efd_host: "localhost"
 efd::efd_writers::ts_sal_path: "/opt/lsst/ts_sal/"
 efd::efd_writers::setup_filename: "setupEFD.env"
 efd::efd_writers::ts_efdruntime_version: "3.9.1"
-
 efd::efd_writers::db_type:
   - "efd"
   - "influx"
   - "kafka"
-
 efd::efd_writers::efdwriters_subsystem_list:
   - "ATHeaderService"
   - "Electrometer"
   - "ATDome"
-
 efd::efd_writers::efdwriter_topic_type:
-  - command
-  - event
-  - telemetry
-
+  - "command"
+  - "event"
+  - "telemetry"
 #TODO Testing variables, to be removed
-
 ts_sal::sal_network_interface: "eth0"
-
 # TODO: remove this configuration, since it should use the default policy
 # It configuration
-
 monitoring_enabled: true
-
 firewalld_status: "stopped"
-
-efd::efd_writers::lsst_sal_repo_url: https://project.lsst.org/ts/lsstrepo/
+efd::efd_writers::lsst_sal_repo_url: "https://project.lsst.org/ts/lsstrepo/"

@@ -37,15 +37,15 @@ telegraf::inputs:
 # This must be the name of the SystemD service name
 # It will use telegraf procstat plugin to monitor each systemd unit listed
 monitored_services:
-  - firewalld
-  - puppet
-  - sssd
-  - chronyd
-  - NetworkManager
+  - "firewalld"
+  - "puppet"
+  - "sssd"
+  - "chronyd"
+  - "NetworkManager"
 
 # Making sure that you can configure further inputs in lower hierachies
 lookup_options:
   monitored_services:
     merge:
-      strategy: deep
+      strategy: "deep"
       merge_hash_arrays: true

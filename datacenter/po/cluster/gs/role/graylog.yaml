@@ -1,42 +1,34 @@
 ---
 elasticsearch_xms: "2048m"
 elasticsearch_xmx: "2048m"
-
 graylog_java_opts: "-Xms1g -Xmx1g -XX:NewRatio=1 -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:+UseParNewGC -XX:-OmitStackTraceInFastThrow"
-
-##########################################################
 # SSL Certificate variables
-country: US
-state: Arizona
+country: "US"
+state: "Arizona"
 locality: "Tucson"
 organization: "LSST"
-division: IT
+division: "IT"
 # Also used to decide the URL for Graylog's web
 canonical_name: "gs-graylog-node-01.po.us.lsst.org"
 # Temporal IP while we re-deploy the Summit Network Infrastructure
-server_ip_address: 139.229.162.106
+server_ip_address: "139.229.162.106"
 alternative_dns_1: "gs-graylog-node-01.po.us.lsst.org"
-
 certificate_duration: 3650
 ssl_key_algorithm: "rsa:2048"
-
-##########################################################
-
-#firewall configuration
-
+# firewall configuration
 firewalld::ports:
-  'Opening port for Graylog service':
-    ensure: present
-    zone: public
+  "Opening port for Graylog service":
+    ensure: "present"
+    zone: "public"
     port: 9000
-    protocol: 'tcp'
-  'Opening port for Syslog in public zone':
-    ensure: present
-    zone: public
+    protocol: "tcp"
+  "Opening port for Syslog in public zone":
+    ensure: "present"
+    zone: "public"
     port: 5514
-    protocol: 'udp'
-  'Opening port for pfsense in public zone':
-    ensure: present
-    zone: public
+    protocol: "udp"
+  "Opening port for pfsense in public zone":
+    ensure: "present"
+    zone: "public"
     port: 6514
-    protocol: 'udp'
+    protocol: "udp"

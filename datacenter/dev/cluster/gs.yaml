@@ -11,8 +11,8 @@ dhcp_pools:
     failover: "failover-partner"
 ignored_subnets:
   eth0:
-    network: 139.229.160.0
-    mask: 255.255.255.0
+    network: "139.229.160.0"
+    mask: "255.255.255.0"
 dnsdomain:
   - "cp.cl.lsst.org"
 dnssearchdomains:
@@ -29,20 +29,20 @@ ntpservers:
 dhcp_interfaces:
   - "eth0"
 firewalld::ports:
-  'Opening port for DHCP peering 1':
-    ensure: present
-    zone: public
+  "Opening port for DHCP peering 1":
+    ensure: "present"
+    zone: "public"
     port: 547
-    protocol: 'tcp'
-  'Opening port for DHCP peering 2':
-    ensure: present
-    zone: public
+    protocol: "tcp"
+  "Opening port for DHCP peering 2":
+    ensure: "present"
+    zone: "public"
     port: 548
-    protocol: 'tcp'
-  'Opening port for DHCP Server':  # Client port is already configured on default.pp
-    ensure: present
-    zone: public
+    protocol: "tcp"
+  "Opening port for DHCP Server":  # Client port is already configured on default.pp
+    ensure: "present"
+    zone: "public"
     port: 67
-    protocol: 'udp'
+    protocol: "udp"
 monitored_services:
-  - dhcpd
+  - "dhcpd"
