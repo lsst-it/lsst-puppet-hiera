@@ -1,10 +1,4 @@
 ---
-# CCS Configurtion
-monitoring_enabled: true
-ccs::java_version_major: "8u191"
-ccs::java_version_minor: "b12"
-ccs::java_url_hash: "2787e4a523244c269598db4e85c51e0c"
-ccs::ccs_installation_dir: "/lsst/ccs/prod"
 ccs::ccs_systemd_units:
   demo-subsystem.service:
     serviceDescription: "Demo subsystem to test CCS deployments"
