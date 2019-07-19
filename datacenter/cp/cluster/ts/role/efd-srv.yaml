@@ -17,18 +17,18 @@ monitored_services:
   - "ATMCS_telemetry_efdwriter"
 
 firewalld::ports:
-  'MySQL tier1':
-    ensure: present
-    zone: public
+  "MySQL tier1":
+    ensure: "present"
+    zone: "public"
     port: 3307
-    protocol: 'tcp'
-  'MySQL tier2':
-    ensure: present
-    zone: public
+    protocol: "tcp"
+  "MySQL tier2":
+    ensure: "present"
+    zone: "public"
     port: 3308
-    protocol: 'tcp'
-  'MySQL tier3':
-    ensure: present
-    zone: public
+    protocol: "tcp"
+  "MySQL tier3":
+    ensure: "present"
+    zone: "public"
     port: 3309
-    protocol: 'tcp'
+    protocol: "tcp"

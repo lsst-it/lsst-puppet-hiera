@@ -1,34 +1,33 @@
 ---
 # Common configuration for both, master and slave.
 # DHCP Server to be installed on IP: 139.229.162.250/24
-
 dhcp_pools:
   "users.cp.cl.lsst.org":
     network: "139.229.162.0"
     mask: "255.255.255.128"
     range:
-      - '139.229.162.2 139.229.162.99'
+      - "139.229.162.2 139.229.162.99"
     gateway: "139.229.162.126"
     failover: "failover-partner"
   "contractors.cp.cl.lsst.org":
     network: "139.229.191.0"
     mask: "255.255.255.128"
     range:
-      - '139.229.191.1 139.229.191.100'
+      - "139.229.191.1 139.229.191.100"
     gateway: "139.229.191.126"
     failover: "failover-partner"
   "guests.cp.cl.lsst.org":
     network: "139.229.191.128"
     mask: "255.255.255.128"
     range:
-      - '139.229.191.129 139.229.191.239'
+      - "139.229.191.129 139.229.191.239"
     gateway: "139.229.191.254"
     failover: "failover-partner"
 
 ignored_subnets:
   ens192:
-    network: 139.229.160.0
-    mask: 255.255.255.0
+    network: "139.229.160.0"
+    mask: "255.255.255.0"
 
 dnsdomain:
   - "cp.cl.lsst.org"
@@ -42,7 +41,7 @@ dnssearchdomains:
 
 nameservers:
   - "139.229.136.35"  # pi-hole temporary DNS content filtering
-  #- "140.252.32.45"  # it doesn't make sense to have
+  #- "140.252.32.45"  # it does not make sense to have
 
 ntpservers:
   - "ntp.shoa.cl"
@@ -51,32 +50,32 @@ dhcp_interfaces:
   - "ens192"
 
 firewalld::ports:
-  'Opening port for DHCP peering 1':
-    ensure: present
-    zone: public
+  "Opening port for DHCP peering 1":
+    ensure: "present"
+    zone: "public"
     port: 547
-    protocol: 'tcp'
-  'Opening port for DHCP peering 2':
-    ensure: present
-    zone: public
+    protocol: "tcp"
+  "Opening port for DHCP peering 2":
+    ensure: "present"
+    zone: "public"
     port: 548
-    protocol: 'tcp'
+    protocol: "tcp"
   # Client port is already configured on default.pp
-  'Opening port for DHCP Server':
-    ensure: present
-    zone: public
+  "Opening port for DHCP Server":
+    ensure: "present"
+    zone: "public"
     port: 67
-    protocol: 'udp'
+    protocol: "udp"
 
 dhcp_hosts:
   "M207-gs-printer-01.cp.cl.lsst.org":
     comment: "Printer configuration: https://jira.lsstcorp.org/browse/IHS-1787"
     mac: "58:38:79:08:5b:07"
-    ip: 139.229.162.99
+    ip: "139.229.162.99"
   "M207-gs-plotter-01.cp.cl.lsst.org":
     comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
     mac: "f4:30:b9:48:d5:9a"
-    ip: 139.229.162.98
+    ip: "139.229.162.98"
 
 monitored_services:
-  - dhcpd
+  - "dhcpd"

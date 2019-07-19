@@ -8,37 +8,37 @@ motd: "Server installed without custom motd\n"
 IMS_Configuration:
   SSSD:
     sssd:
-      - domains: ldap.ncsa.illinois.edu
+      - domains: "ldap.ncsa.illinois.edu"
       - config_file_version: 2
-      - services: nss, pam, sudo
+      - services: "nss, pam, sudo"
       - debug_level: 3
     nss:
-      - filter_groups: root, qualys
-      - filter_users: activemq,abrt,adm,apache,avahi,avahi-autoipd,bin,chronograf,chrony,condor,core,daemon,dbus,docker,elasticsearch,ftp,games,geoclue,grafana,graylog,graylog-web,grid,halt,hsqldb,influxdb,ldap,lp,mail,man,mongod,munge,myproxy,myproxyoauth,mysql,nagios,nfsnobody,nobody,nrpe,nscd,nslcd,ntp,operator,oprofile,oracle,ossec,pdagent,polkitd,postfix,postgres,puppet,rsbackup,qserv,qualys,root,rpc,rpcuser,saslauth,shutdown,simpleca,slurm,sshd,sssd,suiadmin,sync,syscore,systemd-bus-proxy,systemd-network,tcpdump,telegraf,tomcat,tss,ubuntu,unbound
-      - override_homedir: /home/%u
-      - allowed_shells: /bin/bash, bin/zsh
-      - shell_fallback: /bin.bash
-      - override_shell: /bin/bash
+      - filter_groups: "root, qualys"
+      - filter_users: "activemq,abrt,adm,apache,avahi,avahi-autoipd,bin,chronograf,chrony,condor,core,daemon,dbus,docker,elasticsearch,ftp,games,geoclue,grafana,graylog,graylog-web,grid,halt,hsqldb,influxdb,ldap,lp,mail,man,mongod,munge,myproxy,myproxyoauth,mysql,nagios,nfsnobody,nobody,nrpe,nscd,nslcd,ntp,operator,oprofile,oracle,ossec,pdagent,polkitd,postfix,postgres,puppet,rsbackup,qserv,qualys,root,rpc,rpcuser,saslauth,shutdown,simpleca,slurm,sshd,sssd,suiadmin,sync,syscore,systemd-bus-proxy,systemd-network,tcpdump,telegraf,tomcat,tss,ubuntu,unbound"
+      - override_homedir: "/home/%u"
+      - allowed_shells: "/bin/bash, bin/zsh"
+      - shell_fallback: "/bin.bash"
+      - override_shell: "/bin/bash"
       - reconnection_retries: 3
     'domain/ldap.ncsa.illinois.edu':
       - timeout: 60
       - enumerate: false
-      - id_provider: ldap
+      - id_provider: "ldap"
       - max_id: 1090519040
-      - ldap_uri: ldaps://ldap.ncsa.illinois.edu
-      - ldap_search_base: dc=ncsa,dc=illinois,dc=edu
-      - ldap_tls_reqcert: demand
-      - ldap_tls_cacert: /etc/pki/ca-trust/source/anchors/incommon-ca.pem
-      - ldap_schema: rfc2307bis
-      - ldap_group_member: uniqueMember
-      - access_provider: simple
-      - simple_allow_groups: prj_cerb_users
-      - simple_deny_groups: all_disabled_usr, lsst_disabled
-      - auth_provider: krb5
-      - krb5_realm: NCSA.EDU
-      - krb5_server: kerberos.ncsa.uiuc.edu, kerberos-1.ncsa.uiuc.edu, kerberos-2.ncsa.uiuc.edu
-      - krb5_kpasswd: kadmin.ncsa.uiuc.edu
+      - ldap_uri: "ldaps://ldap.ncsa.illinois.edu"
+      - ldap_search_base: "dc=ncsa,dc=illinois,dc=edu"
+      - ldap_tls_reqcert: "demand"
+      - ldap_tls_cacert: "/etc/pki/ca-trust/source/anchors/incommon-ca.pem"
+      - ldap_schema: "rfc2307bis"
+      - ldap_group_member: "uniqueMember"
+      - access_provider: "simple"
+      - simple_allow_groups: "prj_cerb_users"
+      - simple_deny_groups: "all_disabled_usr, lsst_disabled"
+      - auth_provider: "krb5"
+      - krb5_realm: "NCSA.EDU"
+      - krb5_server: "kerberos.ncsa.uiuc.edu, kerberos-1.ncsa.uiuc.edu, kerberos-2.ncsa.uiuc.edu"
+      - krb5_kpasswd: "kadmin.ncsa.uiuc.edu"
       - krb5_auth_timeout: 15
-      - chpass_provider: krb5
-      - krb5_lifetime: 25h
-      - krb5_renewable_lifetime: 7d
+      - chpass_provider: "krb5"
+      - krb5_lifetime: "25h"
+      - krb5_renewable_lifetime: "7d"
