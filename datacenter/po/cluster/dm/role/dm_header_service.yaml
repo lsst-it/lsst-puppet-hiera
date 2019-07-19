@@ -1,10 +1,4 @@
 ---
-# Data Management profile variables
-#####################################################
-monitoring_enabled: false
-
-firewalld_status: "stopped"
-
 dm::dm_header_service::ts_xml_subsystems:
   - "ocs"
   - "efd"

@@ -26,8 +26,6 @@ headerservice::setup_env_content: |
   source $OSPL_HOME/release.com
 headerservice::lsst_sal_repo_url: "https://project.lsst.org/ts/lsstrepo/"
 ts_sal::sal_network_interface: "eth1"
-monitoring_enabled: false
-firewalld_status: "stopped"
 headerservice::header_service_www_output:
   - "/opt/www"
   - "/opt/www/DMHS_filerepo"
