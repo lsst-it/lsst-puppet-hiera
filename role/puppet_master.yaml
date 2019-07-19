@@ -1,0 +1,11 @@
+---
+control_repo: "https://github.com/LSST-IT/lsst-itconf"
+# XXX broken as we need to handle both a public and private hiera repo - JCH
+hiera_repo: "git@github.com:LSST-IT/lsst-puppet-hiera.git"
+hiera_repo_id_path: "/root/.ssh/id_rsa"
+puppet_enc_branch: "master"
+puppet_enc_config_branch: "master"
+puppet_enc_path: "/etc/puppetlabs/code/enc/"
+puppet_enc_repo: "https://github.com/LSST-IT/puppet-enc.git"
+r10k_hiera_org: "lsst_hiera"
+r10k_org: "lsst.org"
