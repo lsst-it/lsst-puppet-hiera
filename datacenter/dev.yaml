@@ -1,6 +1,5 @@
 ---
 # DHCP Server to be installed on IP: 139.229.162.250/24
-monitoring_enabled: true
 dhcp_pools:
   "test.vm.dev..lsst.org":
     network: "10.0.0.0"
@@ -28,21 +27,3 @@ ntpservers:
   - "ntp.shoa.cl"
 dhcp_interfaces:
   - "eth0"
-firewalld::ports:
-  "Opening port for DHCP peering 1":
-    ensure: "present"
-    zone: "public"
-    port: 547
-    protocol: "tcp"
-  "Opening port for DHCP peering 2":
-    ensure: "present"
-    zone: "public"
-    port: 548
-    protocol: "tcp"
-  "Opening port for DHCP Server":  # Client port is already configured on default.pp
-    ensure: "present"
-    zone: "public"
-    port: 67
-    protocol: "udp"
-monitored_services:
-  - "dhcpd"
