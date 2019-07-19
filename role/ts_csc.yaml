@@ -1,0 +1,2 @@
+---
+ts_xml::ts_sal_path: "%{lookup('ts_sal::ts_sal_path')}"

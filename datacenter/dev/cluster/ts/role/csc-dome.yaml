@@ -7,5 +7,3 @@ ts_xml::ts_xml_subsystems:
 ts_xml::ts_xml_languages:
   - "cpp"
   - "python"
-
-ts_xml::ts_sal_path: "%{lookup('ts_sal::ts_sal_path')}"
