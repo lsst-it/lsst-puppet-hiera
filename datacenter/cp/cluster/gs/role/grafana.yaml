@@ -1,6 +1,4 @@
 ---
-grafana_version: "5.4.2"
-
 firewalld::ports:
   "Opening ports for Chronograf":
     ensure: "present"
