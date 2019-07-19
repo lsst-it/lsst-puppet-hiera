@@ -1,20 +1,14 @@
 ---
-elasticsearch_xms: "2048m"
-elasticsearch_xmx: "2048m"
-graylog_java_opts: "-Xms1g -Xmx1g -XX:NewRatio=1 -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:+UseParNewGC -XX:-OmitStackTraceInFastThrow"
-# SSL Certificate variables
 country: "CL"
 state: "Coquimbo"
 locality: "La Serena"
 organization: "LSST"
 division: "IT"
-# Also used to decide the URL for Graylog's web
+
 canonical_name: "gs-graylog-node-01.ls.cl.lsst.org"
 server_ip_address: "139.229.136.244"
 alternative_dns_1: "gs-graylog-node-01.ls.cl.lsst.org"
-certificate_duration: 3650
-ssl_key_algorithm: "rsa:2048"
-# firewall configuration
+
 firewalld::zones:
   internal:
     ensure: "present"
