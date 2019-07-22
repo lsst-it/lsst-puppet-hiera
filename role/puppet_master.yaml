@@ -1,4 +1,6 @@
 ---
+classes:
+  - "role::it::puppet_master"
 control_repo: "https://github.com/LSST-IT/lsst-itconf"
 # XXX broken as we need to handle both a public and private hiera repo - JCH
 hiera_repo: "git@github.com:LSST-IT/lsst-puppet-hiera.git"
