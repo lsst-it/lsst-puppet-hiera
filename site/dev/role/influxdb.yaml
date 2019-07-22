@@ -2,3 +2,4 @@
 country: "DV"
 state: "Development Environment"
 locality: "DevOps city"
+influxdb_opts: ""

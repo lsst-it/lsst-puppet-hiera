@@ -3,3 +3,4 @@
 country: "US"
 state: "Arizona"
 locality: "Tucson"
+influxdb_opts: ""

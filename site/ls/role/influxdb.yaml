@@ -3,3 +3,4 @@
 country: "CL"
 state: "Coquimbo"
 locality: "La Serena"
+influxdb_opts: ""
