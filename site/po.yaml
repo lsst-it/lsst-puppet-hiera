@@ -17,7 +17,6 @@ motd: |
   |____|___/___/ |_|
   Server controlled by puppet, configurations may be overwritten.
   Server configured to use Tucson configuration.
-  Server installed in Rack %{::rack}, Room %{::room}
   Syslog messages sent to graylog, metrics to inflluxdb
   Any questions or suggestions forward it to IT.
 
@@ -62,10 +61,6 @@ telegraf::global_tags:
   device_number: "%{::device_number}"
   node_name: "%{::node_name}"
   datacenter: "%{::datacenter}"
-  enclave: "%{::enclave}"
-  country: "%{::country}"
-  room: "%{::room}"
-  rack: "%{::rack}"
   type: "%{::virtual}"
 telegraf::interval: "1m"
 telegraf::round_interval: true

@@ -94,10 +94,6 @@ telegraf::global_tags:
   device_number: "%{::device_number}"
   node_name: "%{::node_name}"
   datacenter: "%{::datacenter}"
-  enclave: "%{::enclave}"
-  country: "%{::country}"
-  room: "%{::room}"
-  rack: "%{::rack}"
   type: "%{::virtual}"
 telegraf::interval: "1m"
 telegraf::round_interval: true
