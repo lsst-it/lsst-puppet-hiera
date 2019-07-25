@@ -49,3 +49,10 @@ accounts::user_list:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIA70QvCIUUgJbhRwbB5+ZzipmvdwQTwbNAYpcns2/AdjgfZA/YWa90OyHlB1XKp6PEtELAbhxd1PytPurn7oY5mybf1JFVfiloYszllbitXCGvG5W09MFBn/bKtb0dq+g2LcdBF8DRgYWopSKo0qrnRvNcGBi9prDv30EDYH4Kq4ItitlzyPGecihVo3fdZrciW9MErlam45gGKL0YOcASaEW+ISjQsdFYVtzIS4BGLKz9ayWvIUFJna7znRMNiDTuIocz13DP4aht9q3aV3JKMJFbfixgukdkMwxcKW2lNq/OIFeeQbQ0AxxyoWrkh/WBNBz1jcMYdFZk2fqG6Dp jgt@vpn-clients-gw2-113-137.slac.stanford.edu"
 puppet_agent::package_version: "6.7.0"
 puppet_agent::collection: "puppet6"
+resolv_conf::nameservers:
+  - "127.0.0.1"
+resolv_conf::searchpath:
+  - "test"
+  - "lsst.org"
+  - "tuc.noao.edu"
+  - "noao.edu"
