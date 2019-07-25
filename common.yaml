@@ -42,3 +42,4 @@ IMS_Configuration:
       - chpass_provider: "krb5"
       - krb5_lifetime: "25h"
       - krb5_renewable_lifetime: "7d"
+timezone::timezone: "UTC"
