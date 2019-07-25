@@ -20,6 +20,11 @@ motd: |
   Syslog messages sent to graylog, metrics to inflluxdb
   Any questions or suggestions forward it to IT.
 
+chrony::servers:
+  - "0.us.pool.ntp.org"
+  - "1.us.pool.ntp.org"
+  - "2.us.pool.ntp.org"
+
 ntp:
   ntp_server_1: "0.us.pool.ntp.org"
   ntp_server_2: "1.us.pool.ntp.org"

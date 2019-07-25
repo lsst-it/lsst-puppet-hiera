@@ -1,0 +1,49 @@
+---
+tuned::profile: "latency-performance"
+selinux::mode: "disabled"
+firewall::purge: true
+firewallchain::purge: true
+sudo::config_file_replace: false
+sudo::configs:
+  wheel:
+    content: "%wheel ALL=(ALL) NOPASSWD: ALL"
+lookup_options:
+  accounts::user_list:
+    merge:
+      strategy: "deep"
+accounts::user_defaults:
+  groups:
+    - "wheel"
+  managehome: true
+  system: false
+accounts::user_list:
+  jhoblitt:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZFV9AL2qPh6CV+DeY32oyg0jCkxkbCHVSPHOoikDkwzwMW/7QQdRI8TJ0h8vpFi15pNyu+n7s7MJSWdg5yUvTCataVpOndDElDz10DaEcGIHNq8/qjEPiHulj/KUoDkEU+yMoWY8jRs3ARyL+6p6LDUBsWpzIY8jMOaEVUJjlVt+0ih2a/D3re0daws6w3mBbmLjitHLS5f2YJKlStIHWCWjMXvP5tqUsvhHvIQH/csBQGXnUiRxR8YSJK9u3CMvTzx6PnC7p98yRCOOrMRQ7yT7vuXyXsk7qoUpArUe/T5nEcwRA/21QVurJ1s3in/mpFI0Ogg5kD7NpFqoTq6itBxbPz7DwaOyjEltJBjQAEvuvfHDJYsBTM3fpfEt5jR8ieuDta1214tr5qVOmR17JonssV7/ksizATm1KkMA7+Q8CWCgrFdZmEMaFjav2U72EWyLRe5utxQV+dWPnxd13NxVu6sgM3CBEC4HzOBMf+upt8tMvjLBjci1sbhCAvvU= github2"
+  nicosingh:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDVrX918FtDh0mTaCO4MTj5aVsT4pl3t86li0JQQaqh7XOeQhn8ffkI0Li6OGIFg/qdzMID4mjf0HYA71sTD2nipM3cKJWJzbT+Gk0rTzvXhuhGI2Q47HBfU8/pB0tmzj9+031kf/djcnGRJ9cYQ2Ndd3Y3dCpurJxDfQ5+XheF3GMlfC0WG6gLn800mWUxFAgRYj0HxumMTQNpHS0wzsY2y6txn+vxbY1gK8bidtXCylgGNWwg9HVAputU8jejLQ5DqtQoXlcv6MwpM8rhM6LMxTLMgxDjagBQsgA4I+DWboD+zP49at0BnendY+DOcmaDXG2D77NMwCf+JK+C/oYuUPDRtXd7GXyu9t1pV/Z+FyU0Azocn8WZCCAZLZhokE71lfACpFZW7bMgy0jHVMEzIBfu6OS349s6ZFgipFF47ZQs/vt4nVqmkR6gCGacWg0APUditOi6wqh3+DUVdQsBOM8ReMt83W0EeioIvyrjEjcLCBTbXWjQCCg1IEO6pgokRBHHw3Cc9SxYHv3/6g/2hF6ViMHjTA+/AqMa0YQMG6XvS+braJDoGnqQY6kMWe8tNTDBvdYqhKZzf4iGNsbo80gLZ2JMai5yV3OGfkkMjelyVDA0Lu0kXNtv3BOutRQdwi0TbiCEMnEVwMOiHXkW6FEN23ZQ0sjiJuvBtswYMw== github-ci-key"
+  igoodenow:
+    sshkeys:
+      - "ssh-rsa AAAB3NzaC1yc2EAAAADAQABAAABAQDaTnlA3vurS5Fg8gKMxXnkad4CNzHn8OP0sCkZ9Ft8IW8WZQ5u6TlBoF7swP7Ov01vc5hovz1CUDUGSim3PIqjsN9NRV5OL36Mnx9TrSNEAbxK39qiq2g76y80aXyMUz5pbZSphoCWZpvYgVJ64bE57mXUzvqhVJK7WYOGQ9eRNeVhquCP/lnEuoKaMq+3Lo8iA4fmVAvjWTtuGxcHetUI93j3rIjAOd3P9il36tsKjbSIjkodOKTAsB4bb2iCX/V/0hojjsaVVcsu/3ebeKbE+5RivPT+cErkQ/lLb/pWr/Bwco20CDxGJ1MaNY0qa2Tby5czTWAOD/z98sU6Q7NR igoodenow@sirius"
+  mreuter:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDHOG2XcXnO8Q8vYF9nfhvqp7x5CQLhvA6DwtkP9xzJB/9eP+ibyTAeejXQ4sV+BMYBAI2kXTQYVbisRbKpC4NDr2KrzwZ2ke70gKeI5Lg4CLWmvuuCbzX9nAUrsQKL/3j+algCwZgq8G5hGcoqe+c4a12SSsWOInx0V1BJSrAv4wtvjI6Xi836hN/fRJq6lvTplW9KsWVYml5scqinlpYj/rdrP32a/ddNVpmDGUjLpmIYqVJbvF+rUIrLFcQcHDV+FA5+pKLLRlqO+xLN20reIgwZYUvIm1HjtQxX/e+O5zYQD/PUE4OQuFzyLbHso/pj5Y0Zr0ygwDVReamzj0Ds+qdLDMB1RU8fwj4UoJxD77i+8wChBXB012zkiYBJN4LjY2HEMBTuhG713bztlvnqvy2hnZLbWE8iabxsYQaqfNEUIgvCUBbdKYEc+oHWWtNSpipUp6PiMWiBG73M0uiWlzB2mptTW8VZK5PvKwAn1hiDzE0ua0hxcZZJQqC/NQFPDmQCoYTCtgCtSRuUW3Qth/nissOVX8RUh1n8UrhSJDsbAukvoOjsvWxGS5K0SiYL2Wv0jozn8BvtsnLoy0e9QE8xMNC/6YPOeY+48/xdb6PyqLLtO5gMPLwNhY0LTwgsF/OhAGne2RtPYBkrfI2xLmyyosQbjOmRY6KbSNc4Ew== mareuter@aquila.local"
+  tonyj:
+    sshkeys:
+      - "ssh-rsa AAAB3NzaC1yc2EAAAADAQABAAABAQDAjYFvvEHTSVd5c96HiSg4rYRSQOAkikIUwJWIVswKZHBnqHB3dy3m/zGJEUitv2wYh7Ya2IGzmRcBNULw5k9SuE+EARfHzNl5m99Msa13YVEo7ghZPAKWwqK0fW/qlJSlcSPgUHQoN5fr0E+vxvpZePw0TC28DPon2OZXl9hZdSwUzl+F8Z+S6fXCIGOy4OHbeSfVDjhHyOyDuGa94fxHUZrIfEHvtMSdQWWHN3LN13bUuFyudCfSVA68RsxpydF4R9b3JcdA9WH1FdpbH0mL5uiAFgHD9j+NTTKsdr8VZhDZ9mRPyd6GLN3C8ICkyoHJ0ZM+TcfGkfb2MrDto6Fd tonyj@Valinor"
+  turri:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAt+uCQfkXdZ2R8mcnngwPJm1P9jqMX4FxNjnfoznrrMKSjO5DFAlqEdcq3zL81Fd3fzXmHCpPFUbYW/gDsEZCyteOOVBwgDyCVpZ0NQM22/cC2+uDqwykh9vapo235rE9SRDtgFXGib1kXETvfZvzBGdSeQEfwIIWjwVZsPFQvaf4jzfRvS0XzXtKMr2N5Xy0dQ7McAFKbERI2bG/KLDuwz1JICiRhHPEgwin83Od5uft8/+ZYozrgPo2MPaLIWnj2PdGkcMGpB1mqGvXw/s0mOlXbaoJtaYuCZ3op8X9m6pX7DDVnzUDr9zO9b2S9UG31UlwapNDUVYMg2KeP/OdKQ== turri@glastlnx05"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAt+uCQfkXdZ2R8mcnngwPJm1P9jqMX4FxNjnfoznrrMKSjO5DFAlqEdcq3zL81Fd3fzXmHCpPFUbYW/gDsEZCyteOOVBwgDyCVpZ0NQM22/cC2+uDqwykh9vapo235rE9SRDtgFXGib1kXETvfZvzBGdSeQEfwIIWjwVZsPFQvaf4jzfRvS0XzXtKMr2N5Xy0dQ7McAFKbERI2bG/KLDuwz1JICiRhHPEgwin83Od5uft8/+ZYozrgPo2MPaLIWnj2PdGkcMGpB1mqGvXw/s0mOlXbaoJtaYuCZ3op8X9m6pX7DDVnzUDr9zO9b2S9UG31UlwapNDUVYMg2KeP/OdKQ=="
+  gmorris:
+    sshkeys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6bVfiFz7ZQ4Ik+tJ+0jMyieU9x7wdRlfkI9tK6FwsJ gmorris@lsst-dev01.ncsa.illinois.edu"
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM4Doki4HV0BkSUKhQgxsz7ERoJf/EnzcqOx2MWYCLCQ gmorris@cent7d"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAyDNBqyEJdKvyYZQeyCVNl68XKYb386A3LhIzQXviSW7hSiJvQj4r0OW+qwbdg08kDA8KuNt58e7WOFFwm/OgTag/mBBf9FHaTpWt5uXo3oTHd+8x9P6oHKIQtg1i//4zmoBXzLsbrOMyvtRjaQmMPe8YP6/5apzavuSdSrPCDulyBSBqxk1jM88YRWBdjxciYlS2RFrEr8QHT2MYMiG3sBAgZbWP1gaVcbjrr1HF9Z49+lEMCncIwCMrtTht92klAVPKR0gJ4OjatX674VDFr0feSc7hhKd6VxX8txFiZqGzAwIKUQSRP7KBY8TmquQAKNCU7xJEP/qehnEq36bt/Q== gmorris@noric05"
+  mhuffer:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeQIzDSRlT9XTf6YWwibci/uNZM4NlZIBTxTcTV3K8q7qmHkNXgVjotv2aAYgj4TjDlENY0Mg0weZ3Qe6sgw6AxRi+W/HWpbrE8LnK4N6U2WFyrm8N5D3Ly/kLX1r1AfWe/bLs76QGqioa2rMn1go0dlfjaCX/Lp51t88/40mwe64ilicY7efxiTcvbo36PMCfpTGjjfrw6XaVKHOqSUO2khvEvrJg0w35ltw7aH6PjNybE7Ohy2SG3hvSpPg/aWOPRYyFJNshPTRt0bm2thzIV6v1nolNEQ0gjE5z0h1sn52fX30DFEcy4yvOYCRGQSYhCdlXKQAyRt9bEeg40L3f mehsys@slac.stanford.edu"
+  jgt:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIA70QvCIUUgJbhRwbB5+ZzipmvdwQTwbNAYpcns2/AdjgfZA/YWa90OyHlB1XKp6PEtELAbhxd1PytPurn7oY5mybf1JFVfiloYszllbitXCGvG5W09MFBn/bKtb0dq+g2LcdBF8DRgYWopSKo0qrnRvNcGBi9prDv30EDYH4Kq4ItitlzyPGecihVo3fdZrciW9MErlam45gGKL0YOcASaEW+ISjQsdFYVtzIS4BGLKz9ayWvIUFJna7znRMNiDTuIocz13DP4aht9q3aV3JKMJFbfixgukdkMwxcKW2lNq/OIFeeQbQ0AxxyoWrkh/WBNBz1jcMYdFZk2fqG6Dp jgt@vpn-clients-gw2-113-137.slac.stanford.edu"
