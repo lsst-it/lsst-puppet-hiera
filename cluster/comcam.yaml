@@ -47,6 +47,9 @@ accounts::user_list:
   jgt:
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIA70QvCIUUgJbhRwbB5+ZzipmvdwQTwbNAYpcns2/AdjgfZA/YWa90OyHlB1XKp6PEtELAbhxd1PytPurn7oY5mybf1JFVfiloYszllbitXCGvG5W09MFBn/bKtb0dq+g2LcdBF8DRgYWopSKo0qrnRvNcGBi9prDv30EDYH4Kq4ItitlzyPGecihVo3fdZrciW9MErlam45gGKL0YOcASaEW+ISjQsdFYVtzIS4BGLKz9ayWvIUFJna7znRMNiDTuIocz13DP4aht9q3aV3JKMJFbfixgukdkMwxcKW2lNq/OIFeeQbQ0AxxyoWrkh/WBNBz1jcMYdFZk2fqG6Dp jgt@vpn-clients-gw2-113-137.slac.stanford.edu"
+  bstalder:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDERE92rv5wY/lGVK4wCNXm4peoQLaedOniL1RvnwB8utt7U8J3zf7OG8UQudJlK+Bd8NXc/J4CvpOUjLUPc1ZfUjII0lNtjQDpz0Ur89QvQxDZTOizF6J9At/RZuEKQvg2SFRpxGu8SSfOh8LBBoz97O7u+6NK0a00+aUGLt/1DcDPeJ8W6OI9s6o/2/RI9n0WlQ5VAmX70g6XgcJ/iwI9WIoaB7oyKboHc7GFg50E3/vZBe0J0eZmdb5l9P2+J54SWazri/WyDlkL8NQHa0mRA7fUTWMYkYeqSyKC9WcDt8HzlrnqAfCfC5sd0H+TbGRprsNvSQ4E+fgfc2pUc2Ol bstalder@malbec.local"
 puppet_agent::package_version: "6.7.0"
 puppet_agent::collection: "puppet6"
 resolv_conf::nameservers:
