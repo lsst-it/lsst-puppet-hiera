@@ -1,8 +1,7 @@
 ---
 tuned::profile: "latency-performance"
 selinux::mode: "disabled"
-firewall::purge: true
-firewallchain::purge: true
+firewall::ensure: "stopped"
 sudo::config_file_replace: false
 sudo::configs:
   wheel:
