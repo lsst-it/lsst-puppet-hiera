@@ -12,3 +12,15 @@ cron::job:
     weekday: "*"
     user: "root"
     description: "Run R10K"
+r10k::mcollective: false
+r10k::cachedir: "/var/cache/r10k"
+r10k::sources:
+  control:
+    remote: "https://github.com/lsst-it/lsst-itconf"
+    basedir: "/etc/puppetlabs/code/environments"
+  lsst_hiera_private:
+    remote: "git@github.com:lsst-it/lsst-puppet-hiera-private.git"
+    basedir: "/etc/puppetlabs/code/hieradata/private"
+  lsst_hiera_public:
+    remote: "https://github.com/lsst-it/lsst-puppet-hiera.git"
+    basedir: "/etc/puppetlabs/code/hieradata/public"
