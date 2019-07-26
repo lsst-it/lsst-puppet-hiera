@@ -52,6 +52,12 @@ accounts::user_list:
   bstalder:
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDERE92rv5wY/lGVK4wCNXm4peoQLaedOniL1RvnwB8utt7U8J3zf7OG8UQudJlK+Bd8NXc/J4CvpOUjLUPc1ZfUjII0lNtjQDpz0Ur89QvQxDZTOizF6J9At/RZuEKQvg2SFRpxGu8SSfOh8LBBoz97O7u+6NK0a00+aUGLt/1DcDPeJ8W6OI9s6o/2/RI9n0WlQ5VAmX70g6XgcJ/iwI9WIoaB7oyKboHc7GFg50E3/vZBe0J0eZmdb5l9P2+J54SWazri/WyDlkL8NQHa0mRA7fUTWMYkYeqSyKC9WcDt8HzlrnqAfCfC5sd0H+TbGRprsNvSQ4E+fgfc2pUc2Ol bstalder@malbec.local"
+  jcockrum:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA+7nmXxf1pAsBnefdTCeXlAg9aRaAPpOdljoDap9l6uC/91sfsvOWJCg8jpIHmaIyQPqRPzkBrNZHiC1mw+tTmzjS37hNnDlDpv2v9ZfvkIPt8mh627k1VqjjIrf0j0tt/qPTxn5KjcG/kg1Zr/widmvmzJaie70S9yp1Jvs2ucBE9DenkYHF5UcOntmL8Jwwvp8njzsYLwuwths+ZFkJs1VOYApytMGAv8ZBI5Dm+20Kafeb6sUImPsEgxRf66jAaNxWftPxx+u9jzUN2+rnKmvi72KSaWqcXGRHXoqt3K/rgnN0ADYYf2Ay/yjMSwNccIsIZtcDZuWGlkLCZSw1 jcockrum@bastionhost.lsst.org"
+  shahram:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAictUaJdM0LsjA4Lx8zWtZOHM82VNrwBaK507GRFW6FcDcs2ggaLQkqAIAmA2kCemkDeM31ylR9QJ4gkM17pq57NITER4MkODR8BmLYLcNPhcJ33Eje5qHuc6wapuE9mg5OJcSeBt/PimdKxqNl+bmYFXe6UkCPiAGFPv6hEobWA7O2p8Tp92SkDhxE0wST8Sxs/FpQN5LWQ8BjOU3mdbOZairdIXHzdl308VY0aMYvD/uhi22l6CndCTCRe8WJ0UjOaY5CmKHQZWVb1auxFj0LEz1qVB/ZZd9Kn0NPJ2f3zzll8mJCZSUJtcLZCgGiX9Dyf4J071aHUTUdXe+5UnPQ== rsa-key-20190116"
 puppet_agent::package_version: "6.7.0"
 puppet_agent::collection: "puppet6"
 resolv_conf::nameservers:
