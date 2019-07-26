@@ -56,7 +56,7 @@ accounts::user_list:
 puppet_agent::package_version: "6.7.0"
 puppet_agent::collection: "puppet6"
 resolv_conf::nameservers:
-  - "127.0.0.1"
+  - "10.0.103.101"
 resolv_conf::searchpath:
   - "test"
   - "lsst.org"
