@@ -1,3 +1,4 @@
 ---
 classes:
-  - "role::it::influxdb"
+  - "profile::default"
+  - "profile::it::influxdb"
