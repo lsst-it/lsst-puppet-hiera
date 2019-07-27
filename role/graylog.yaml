@@ -1,6 +1,7 @@
 ---
 classes:
-  - "role::it::graylog"
+  - "profile::default"
+  - "profile::it::graylog"
 mongodb::globals::version: "3.6.13"
 elasticsearch_xms: "2048m"
 elasticsearch_xmx: "2048m"
