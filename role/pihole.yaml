@@ -1,6 +1,6 @@
 ---
 classes:
-  - "role::default"
+  - "profile::default"
 rsyslog::client::inputs:
   test_input:
     type: "imfile"
