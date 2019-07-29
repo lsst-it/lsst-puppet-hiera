@@ -1,6 +1,7 @@
 ---
 classes:
-  - "role::ts::ts_dome"
+  - "profile::default"
+  - "profile::ts::ts_dome"
 ts::ts_dome::labview_version: "2015"
 ts::ts_dome::ts_xml_subsystems:
   - "dome"
