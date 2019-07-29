@@ -1,4 +1,5 @@
 ---
 classes:
-  - "role::ts::ts_csc"
+  - "profile::default"
+  - "profile::ts::ts_csc"
 ts_xml::ts_sal_path: "%{lookup('ts_sal::ts_sal_path')}"
