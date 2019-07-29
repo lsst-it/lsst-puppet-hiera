@@ -1,6 +1,7 @@
 ---
 classes:
-  - "role::ts::ts_rotator"
+  - "profile::default"
+  - "profile::ts::ts_rotator"
 ts::ts_dome::ts_xml_subsystems:
   - "rotator"
 ts::ts_dome::ts_xml_languages:
