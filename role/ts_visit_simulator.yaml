@@ -1,6 +1,7 @@
 ---
 classes:
-  - "role::ts::ts_visit_simulator"
+  - "profile::default"
+  - "profile::ts::ts_visit_simulator"
 visitsim::ts_xml_subsystems:
   - "dome"
   - "rotator"
