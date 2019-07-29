@@ -1,6 +1,7 @@
 ---
 classes:
-  - "role::it::gs_dhcp"
+  - "profile::default"
+  - "profile::it::gs_dhcp"
 monitoring_enabled: true
 monitored_services:
   - "dhcpd"
