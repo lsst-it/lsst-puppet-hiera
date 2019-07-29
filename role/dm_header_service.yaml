@@ -1,5 +1,6 @@
 ---
 classes:
-  - "role::dm::dm_header_service"
+  - "profile::default"
+  - "profile::dm::dm_header_service"
 monitoring_enabled: false
 firewalld_status: "stopped"
