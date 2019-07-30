@@ -38,7 +38,6 @@ accounts::user_list:
   turri:
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAt+uCQfkXdZ2R8mcnngwPJm1P9jqMX4FxNjnfoznrrMKSjO5DFAlqEdcq3zL81Fd3fzXmHCpPFUbYW/gDsEZCyteOOVBwgDyCVpZ0NQM22/cC2+uDqwykh9vapo235rE9SRDtgFXGib1kXETvfZvzBGdSeQEfwIIWjwVZsPFQvaf4jzfRvS0XzXtKMr2N5Xy0dQ7McAFKbERI2bG/KLDuwz1JICiRhHPEgwin83Od5uft8/+ZYozrgPo2MPaLIWnj2PdGkcMGpB1mqGvXw/s0mOlXbaoJtaYuCZ3op8X9m6pX7DDVnzUDr9zO9b2S9UG31UlwapNDUVYMg2KeP/OdKQ== turri@glastlnx05"
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAt+uCQfkXdZ2R8mcnngwPJm1P9jqMX4FxNjnfoznrrMKSjO5DFAlqEdcq3zL81Fd3fzXmHCpPFUbYW/gDsEZCyteOOVBwgDyCVpZ0NQM22/cC2+uDqwykh9vapo235rE9SRDtgFXGib1kXETvfZvzBGdSeQEfwIIWjwVZsPFQvaf4jzfRvS0XzXtKMr2N5Xy0dQ7McAFKbERI2bG/KLDuwz1JICiRhHPEgwin83Od5uft8/+ZYozrgPo2MPaLIWnj2PdGkcMGpB1mqGvXw/s0mOlXbaoJtaYuCZ3op8X9m6pX7DDVnzUDr9zO9b2S9UG31UlwapNDUVYMg2KeP/OdKQ=="
   gmorris:
     sshkeys:
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6bVfiFz7ZQ4Ik+tJ+0jMyieU9x7wdRlfkI9tK6FwsJ gmorris@lsst-dev01.ncsa.illinois.edu"
