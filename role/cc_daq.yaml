@@ -1,7 +1,6 @@
 ---
 classes:
   - "profile::comcam::common"
-  - "profile::comcam::cc_daq"
 cron::job:
   r10k:
     command: "systemd-cat -t 'r10k-cron' /opt/puppetlabs/puppet/bin/r10k deploy environment -t -p"

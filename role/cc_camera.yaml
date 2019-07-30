@@ -1,4 +1,3 @@
 ---
 classes:
   - "profile::comcam::common"
-  - "profile::comcam::cc_camera"
