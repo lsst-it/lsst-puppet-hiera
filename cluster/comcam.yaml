@@ -3,6 +3,7 @@ tuned::profile: "latency-performance"
 selinux::mode: "disabled"
 firewall::ensure: "stopped"
 sudo::config_file_replace: false
+sudo::purge: false
 sudo::configs:
   wheel:
     content: "%wheel ALL=(ALL) NOPASSWD: ALL"
