@@ -2,6 +2,10 @@
 classes:
   - "profile::comcam::common"
   - "profile::comcam::puppet_master"
+puppet::server: true
+puppet::server_version: "6.5.0"
+puppet::environmentpath: "/etc/puppetlabs/code/environments"
+puppet::hiera_config: "$confdir/hiera.yaml"
 cron::job:
   r10k:
     command: "systemd-cat -t 'r10k-cron' /opt/puppetlabs/puppet/bin/r10k deploy environment -t -p"

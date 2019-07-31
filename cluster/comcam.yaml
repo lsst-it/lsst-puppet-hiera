@@ -1,4 +1,6 @@
 ---
+puppet::agent: true
+puppet::version: "6.7.2"
 tuned::profile: "latency-performance"
 selinux::mode: "disabled"
 firewall::ensure: "stopped"
@@ -61,8 +63,6 @@ accounts::user_list:
   homer:
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA5GMK3DZzZ+V8bzIpkiV0JRV8e9p7yBOI5iZLtijGMMeuMcvr0RabBEz28490/T1WbRkJ2fIvWF9snkjdb2HXOZ19vGKH9491v/vE/s7j9blvrtKucBXnzjmsnQliP7DRxG2B1I15FDdrCkvakW62XmPNj3xFAbhkFix5Y4rN1YMnKWWbA9k4Qy7jJ451GaykDouORE5lol4l+fdcj8w4AQJd3bQ8HCgYaKQNhiDHnrBDIXssKYxL1f7ZafIhvglWcU97SqSVtXOrmpBThOtcEMuihgJVoW5HTLBvaI+p6PJr1jMT6mD4Ww9UF+0yfTI9nd6OHpETRne3DuWW7YrvGw== homer@rhel6-64j"
-puppet_agent::package_version: "6.7.0"
-puppet_agent::collection: "puppet6"
 resolv_conf::nameservers:
   - "10.0.103.101"
 resolv_conf::searchpath:
