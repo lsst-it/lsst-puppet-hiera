@@ -1,6 +1,7 @@
 ---
 classes:
   - "profile::comcam::common"
+  - "profile::comcam::docker"
   - "profile::comcam::puppet_master"
 puppet::server: true
 puppet::server_version: "6.5.0"
@@ -34,3 +35,6 @@ r10k::webhook::config::protected: false
 r10k::webhook::use_mcollective: false
 r10k::webhook::user: "root"
 r10k::webhook::group: "root"
+docker::overlay2_override_kernel_check: true
+docker::storage_driver: overlay2
+docker::version: '18.09.3'
