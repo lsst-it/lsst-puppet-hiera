@@ -64,6 +64,9 @@ accounts::user_list:
   aeisner:
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1JWPkL/KbTvOG2c0U3LYeVIiRs/bkF4iovVZmYVcXYUublaDddj0SqFqGJM+W83GJnzdRzpECPDN2B5/TdyN65hMdI2joKBWv4pfwN37g4F0E7Jb/DTVEDLp7reUdIC0OGSVovUTuI2cMIApajUrhcjf6OpnhI/DoCwA3RTpqkrqNgE4NUhW37poUKCIkYFaPqXHLd4uDt4N2e51aqdvqrpSzVQKSEaR0G2SDGJW/KhZvsCNKYWrNa0gcKXf0HBYar5qCnXuCKatji0UQsXPSnQKSfC+9iDiFJepg3H6PMNiOW5gp2CooGuqRxtsq9lWlu+RJUid6LylQfM9wUqEhw== eisner@rhel6-64a"
+  cslage:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBaopY7ZvvlhVcCUZw12f4tQT64ipR1K3LWES+WnGJhFeevP3Jbm8jNBR0aYM4mrcwJfbPIcXLaiCSpzODKYW3YK4hpMZHGR3+ZM31eLECRgFtFsy1a7mZZAzIVn2Hcfu5E2RayB2AqVRQDBZh9YoMTMp1+CPTEQkBlT9dO+eGd5Wj4YkklRUy3gLEFBFtH0TeIcuFUgcP1rn5XV+nz3JvQtl35Z+/jhTpV2IfSdBuwga867JUQrcA40OajuynfphOJSSWnr5oL/l98KsYewe3pyuzLtmaRc2XGzIwHqO4kQgXZxjsGyfNV4vAMp7wwaAW65iFY+u0m+AML0BkiKjj cslage@Craigs-MacBook-Air.local"
 puppet_agent::package_version: "6.7.0"
 puppet_agent::collection: "puppet6"
 resolv_conf::nameservers:
