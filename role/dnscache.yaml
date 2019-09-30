@@ -1,0 +1,8 @@
+---
+classes:
+  - "profile::core::common"
+  - "dns"
+dns::forward: "only"
+dns::forwarders:
+  - "1.0.0.1"
+  - "4.4.4.4"
