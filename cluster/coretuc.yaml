@@ -1,0 +1,47 @@
+---
+tuned::profile: "latency-performance"
+selinux::mode: "disabled"
+firewall::ensure: "stopped"
+sudo::config_file_replace: false
+sudo::purge: false
+sudo::configs:
+  wheel:
+    content: "%wheel ALL=(ALL) NOPASSWD: ALL"
+lookup_options:
+  accounts::user_list:
+    merge:
+      strategy: "deep"
+accounts::user_defaults:
+  groups:
+    - "wheel"
+  managehome: true
+  system: false
+accounts::user_list:
+  root:
+    password: "%{facts.root_pw}"
+    sshkeys:
+      # foreman
+      # XXX changeme
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDUB0OC/01VRh98rWDLta493+SlN8UNbMKGC8QdHGOy844Ae2eHijlZqmasrJaUA0UH56hmdTVKD7HDjKFN107t1P9TN1SvMV+exL54mUKgETya9V9juRy2/gYhdT55A4i+wGPNcRK1hgS4mCNJHKXhaSl8xufFU95Q0xNnhz0xoBc73EpkrGaUvzmYJAshQokknO66G2u9nEy4yvy0Q1IsSjq5BDt3rtPSD6RKLg+1mWeHNdd8ky3Pe9TXZLo4wav//WnSmfTSE1P8JsNVpcWKvsT5y5rnmnPn5siLYlqvUC4xfUXxR95NX1alPfsIzEHNERzCLcDK9KyqGaKLBVjtyu0LQHu2WadhPY1h9n1ey0haps8QCfNSmNGSVedSTfm5Nf90EtZ7d/eDXuzlBd2nIVn+o0BUa2zBUEI9KzX8t/H+HJabBo9cl2nQ9/EurN1OsgH6bwiTt5sQkHKcJl24bfgyo8sXC5mi2T8cQLQrkY4kuBKV7X3fImdERc4c+fk= comcam-cluter"
+  jhoblitt:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZFV9AL2qPh6CV+DeY32oyg0jCkxkbCHVSPHOoikDkwzwMW/7QQdRI8TJ0h8vpFi15pNyu+n7s7MJSWdg5yUvTCataVpOndDElDz10DaEcGIHNq8/qjEPiHulj/KUoDkEU+yMoWY8jRs3ARyL+6p6LDUBsWpzIY8jMOaEVUJjlVt+0ih2a/D3re0daws6w3mBbmLjitHLS5f2YJKlStIHWCWjMXvP5tqUsvhHvIQH/csBQGXnUiRxR8YSJK9u3CMvTzx6PnC7p98yRCOOrMRQ7yT7vuXyXsk7qoUpArUe/T5nEcwRA/21QVurJ1s3in/mpFI0Ogg5kD7NpFqoTq6itBxbPz7DwaOyjEltJBjQAEvuvfHDJYsBTM3fpfEt5jR8ieuDta1214tr5qVOmR17JonssV7/ksizATm1KkMA7+Q8CWCgrFdZmEMaFjav2U72EWyLRe5utxQV+dWPnxd13NxVu6sgM3CBEC4HzOBMf+upt8tMvjLBjci1sbhCAvvU= github2"
+  igoodenow:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaTnlA3vurS5Fg8gKMxXnkad4CNzHn8OP0sCkZ9Ft8IW8WZQ5u6TlBoF7swP7Ov01vc5hovz1CUDUGSim3PIqjsN9NRV5OL36Mnx9TrSNEAbxK39qiq2g76y80aXyMUz5pbZSphoCWZpvYgVJ64bE57mXUzvqhVJK7WYOGQ9eRNeVhquCP/lnEuoKaMq+3Lo8iA4fmVAvjWTtuGxcHetUI93j3rIjAOd3P9il36tsKjbSIjkodOKTAsB4bb2iCX/V/0hojjsaVVcsu/3ebeKbE+5RivPT+cErkQ/lLb/pWr/Bwco20CDxGJ1MaNY0qa2Tby5czTWAOD/z98sU6Q7NR igoodenow@sirius"
+  jcockrum:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA+7nmXxf1pAsBnefdTCeXlAg9aRaAPpOdljoDap9l6uC/91sfsvOWJCg8jpIHmaIyQPqRPzkBrNZHiC1mw+tTmzjS37hNnDlDpv2v9ZfvkIPt8mh627k1VqjjIrf0j0tt/qPTxn5KjcG/kg1Zr/widmvmzJaie70S9yp1Jvs2ucBE9DenkYHF5UcOntmL8Jwwvp8njzsYLwuwths+ZFkJs1VOYApytMGAv8ZBI5Dm+20Kafeb6sUImPsEgxRf66jAaNxWftPxx+u9jzUN2+rnKmvi72KSaWqcXGRHXoqt3K/rgnN0ADYYf2Ay/yjMSwNccIsIZtcDZuWGlkLCZSw1 jcockrum@bastionhost.lsst.org"
+  shahram:
+    sshkeys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAictUaJdM0LsjA4Lx8zWtZOHM82VNrwBaK507GRFW6FcDcs2ggaLQkqAIAmA2kCemkDeM31ylR9QJ4gkM17pq57NITER4MkODR8BmLYLcNPhcJ33Eje5qHuc6wapuE9mg5OJcSeBt/PimdKxqNl+bmYFXe6UkCPiAGFPv6hEobWA7O2p8Tp92SkDhxE0wST8Sxs/FpQN5LWQ8BjOU3mdbOZairdIXHzdl308VY0aMYvD/uhi22l6CndCTCRe8WJ0UjOaY5CmKHQZWVb1auxFj0LEz1qVB/ZZd9Kn0NPJ2f3zzll8mJCZSUJtcLZCgGiX9Dyf4J071aHUTUdXe+5UnPQ== rsa-key-20190116"
+puppet_agent::package_version: "6.7.0"
+puppet_agent::collection: "puppet6"
+resolv_conf::nameservers:
+  - "1.0.0.1"
+resolv_conf::searchpath:
+  - "tuc.lsst.cloud"
+  - "lsst.cloud"
+  - "lsst.org"
+  - "tuc.noao.edu"
+  - "noao.edu"
