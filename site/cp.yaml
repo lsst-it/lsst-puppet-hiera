@@ -1,0 +1,196 @@
+---
+# IT Services Layout
+# Network List at Cerro Pachon:
+#       * 139.229.160.0/24 - General Services Servers
+#       * 139.229.162.0/24 - Users' Network
+#
+# Services List
+# DHCP Master Server            : 139.229.162.120
+# DHCP Slave Server             : 139.229.160.121
+# DNS Master                    : 139.229.160.248 (Not deployed yet)
+# DNS Slave                     : 139.229.160.247 (Not deployed yet)
+# DNS Cache 1                   : 139.229.160.246 (Not deployed yet)
+# DNS Cache 2                   : 139.229.160.245 (Not deployed yet)
+# Graylog Master                : 139.229.162.106
+# Graylog Slave                 : 139.229.160.243 (Not deployed yet)
+# InfluxDB Master               : 139.229.162.104
+# InfluxDB Slave                : 139.229.160.241 (Not deployed yet)
+# Grafana                       : 139.229.162.105
+# Puppet Master                 : 139.229.160.239 (Not deployed yet)
+motd: |
+  ___   ___ ___ _____
+  | |  / __/ __|_   _|
+  | |__\__ \__ \ | |
+  |____|___/___/ |_|
+  Server controlled by puppet, configurations may be overwritten.
+  Server configured to use Cerro Pachon configuration.
+  Syslog messages sent to graylog, metrics to influxdb
+  Any questions or suggestions forward it to IT.
+ntp:
+  ntp_server_1: "ntp.shoa.cl"
+  ntp_server_2: "1.cl.pool.ntp.org"
+  ntp_server_3: "1.south-america.pool.ntp.org"
+puppet_agent_run_interval: 3600
+puppet_master_server: "puppet-master.cl.lsst.org"
+puppet_agent_service_state: "running"
+firewalld_status: "running"
+lsst_firewall_default_zone: "public"
+lsst_firewall_default_target: "DROP"
+lsst_firewall_default_sources:
+  - "139.229.160.0/24"
+  - "139.229.162.0/24"
+# Monitoring Configuration
+# Remote Logging and Graylog Configuration
+rsyslog_host: "139.229.136.244"
+rsyslog_port: "5514"
+rsyslog_proto: "udp"
+rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
+rsyslog::client::global_config:
+  workDirectory:
+    value: "/var/log"
+  maxMessageSize:
+    value: "64k"
+  preserveFQDN:
+    value: "on"
+rsyslog::client::actions:
+  primary_log_server:
+    type: "omfwd"
+    facility: "*.*;auth,authpriv.none"
+    config:
+      Target: "gs-graylog-node-01.cp.cl.lsst.org"
+      Port: 5514
+      Protocol: "udp"
+  backup_log_server:
+    type: "omfwd"
+    facility: "*.*;auth,authpriv.none"
+    config:
+      Target: "gs-graylog-node-01.ls.cl.lsst.org"
+      Port: 5514
+      Protocol: "udp"
+  all_logs_local:
+    type: "omfwd"
+    facility: "*.*;auth,authpriv.none"
+    config:
+      file: "/var/log/messages"
+  mail_logs:
+    type: "omfwd"
+    facility: "mail.*"
+    config:
+      file: "-/var/log/maillog"
+  cron_logs:
+    type: "omfwd"
+    facility: "cron.*"
+    config:
+      file: "/var/log/cron"
+  boot_logs:
+    type: "omfwd"
+    facility: "local7.*"
+    config:
+      file: "-/var/log/boot.log"
+rsyslog::client::modules:
+  imuxsock: {}
+  imjournal:
+    config:
+      StateFile: "imjournal.state"
+      IgnorePreviousMessages: "off"
+      Ratelimit.Interval: 600
+      Ratelimit.Burst: 20000
+  imklog: {}
+  immark: {}
+  imfile:
+    config:
+      PollingInterval: 10
+# Telegraf common configuration
+monitoring_enabled: true
+telegraf::global_tags:
+  service: "%{::service}"
+  cluster: "%{::cluster}"
+  device: "%{::device}"
+  service_number: "%{::service_number}"
+  device_number: "%{::device_number}"
+  node_name: "%{::node_name}"
+  datacenter: "%{::datacenter}"
+  type: "%{::virtual}"
+telegraf::interval: "1m"
+telegraf::round_interval: true
+telegraf::metric_batch_size: 1000
+telegraf::metric_buffer_limit: 10000
+telegraf::collection_jitter: "0s"
+telegraf::flush_interval: "1m"
+telegraf::flush_jitter: "0m"
+telegraf::debug: false
+telegraf::quiet: false
+telegraf::hostname: ""
+telegraf::omit_hostname: false
+# Sal custom configuration
+ts_sal::lsst_users_home_dir: "/home"
+ts_sal::firewall_dds_zone_name: "lsst_zone"
+ts_sal::ts_sal_path: "/opt/ts_sal"
+ts_sal::ts_opensplice_path: "/opt/ts_opensplice"
+ts_sal::ts_sal_repo: "https://github.com/lsst-ts/ts_sal.git"
+ts_sal::ts_sal_branch: "v3.8.41"
+ts_sal::ts_opensplice_repo: "https://github.com/lsst-ts/ts_opensplice.git"
+ts_sal::ts_opensplice_branch: "master"
+ts_sal::ts_python_build_version: "3.6m"
+ts_sal::ts_python_build_location: "/usr/"
+ts_sal::ts_pythonpath: "/usr/lib/python3.6/site-packages/"
+ts_xml::ts_xml_path: "/opt/ts_xml"
+ts_xml::ts_xml_repo: "https://github.com/lsst-ts/ts_xml.git"
+ts_xml::ts_xml_branch: "v3.8.38"
+ts_xml::ts_xml_build_dir: "build"
+ts_xml::ts_xml_user: "salmgr"
+ts_xml::ts_xml_group: "lsst"
+# Make sure SAL uses the desired network interface
+ts_sal::sal_network_interface: "p2p1"
+# Common configuration for both, master and slave.
+# DHCP Server to be installed on IP: 139.229.162.250/24
+dhcp_pools:
+  "users.cp.cl.lsst.org":
+    network: "139.229.162.0"
+    mask: "255.255.255.128"
+    range:
+      - "139.229.162.2 139.229.162.99"
+    gateway: "139.229.162.126"
+    failover: "failover-partner"
+  "contractors.cp.cl.lsst.org":
+    network: "139.229.191.0"
+    mask: "255.255.255.128"
+    range:
+      - "139.229.191.1 139.229.191.100"
+    gateway: "139.229.191.126"
+    failover: "failover-partner"
+  "guests.cp.cl.lsst.org":
+    network: "139.229.191.128"
+    mask: "255.255.255.128"
+    range:
+      - "139.229.191.129 139.229.191.239"
+    gateway: "139.229.191.254"
+    failover: "failover-partner"
+ignored_subnets:
+  ens192:
+    network: "139.229.160.0"
+    mask: "255.255.255.0"
+dnsdomain:
+  - "cp.cl.lsst.org"
+dnssearchdomains:
+  - "cp.cl.lsst.org"
+  - "cl.lsst.org"
+  - "lsst.org"
+  - "lsst.local"
+  - "162.229.136.in-addr.arpa"
+nameservers:
+  - "139.229.136.35"  # pi-hole temporary DNS content filtering
+  #- "140.252.32.45"  # it does not make sense to have
+ntpservers:
+  - "ntp.shoa.cl"
+dhcp_interfaces:
+  - "ens192"
+dhcp_hosts:
+  "M207-gs-printer-01.cp.cl.lsst.org":
+    comment: "Printer configuration: https://jira.lsstcorp.org/browse/IHS-1787"
+    mac: "58:38:79:08:5b:07"
+    ip: "139.229.162.99"
+  "M207-gs-plotter-01.cp.cl.lsst.org":
+    comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
+    mac: "f4:30:b9:48:d5:9a"
+    ip: "139.229.162.98"

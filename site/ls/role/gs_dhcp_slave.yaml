@@ -1,0 +1,14 @@
+---
+# TODO check if it is ok to use CP servers
+failover_configuration: |
+  failover peer "failover-partner" {
+    secondary;
+    address gs-it-slave.cp.cl.lsst.org;
+    port 519;
+    peer address gs-it-master.cp.cl.lsst.org;
+    peer port 520;
+    max-response-delay 60;
+    max-unacked-updates 10;
+    mclt 3600;
+    load balance max seconds 3;
+  }

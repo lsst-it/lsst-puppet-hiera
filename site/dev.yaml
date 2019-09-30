@@ -1,0 +1,163 @@
+---
+sshd_banner_content: |
+  *** THIS DEVICE IS MONITORED AND MANAGED BY AURA/LSST ***
+  *** Access to this device is PROHIBITED unless explicitly AUTHORIZED, you are not welcomed ***
+  *** If you are not authorized disconnect NOW. If you fail to disconnect now you may be prosecuted under the USA laws, be advised. ***
+motd: |
+  Server installed on a SandBox
+    * Puppet Server:  10.0.0.250 <vagrant up>
+    * Influx Server:  10.0.0.251 <vagrant up influx>
+    * Grafana Server: 10.0.0.252 <vagrant up grafana>
+    * Graylog Server: 10.0.0.253 <vagrant up graylog>
+ntp:
+  ntp_server_1: "0.south-america.pool.ntp.org"
+  ntp_server_2: "0.north-america.pool.ntp.org"
+  ntp_server_3: "1.north-america.pool.ntp.org"
+puppet_agent_run_interval: 3600
+puppet_master_server: "puppet-master.dev.lsst.org"
+puppet_agent_service_state: "running"
+firewalld_status: "running"
+# Monitoring Configuration
+# Remote Logging and Graylog Configuration
+rsyslog::client::global_config:
+  workDirectory:
+    value: "/var/log"
+  maxMessageSize:
+    value: "64k"
+  preserveFQDN:
+    value: "on"
+rsyslog::client::actions:
+  primary_log_server:
+    type: "omfwd"
+    facility: "*.*;auth,authpriv.none"
+    config:
+      Target: "10.0.0.253"
+      Port: 5514
+      Protocol: "udp"
+  backup_log_server:
+    type: "omfwd"
+    facility: "*.*;auth,authpriv.none"
+    config:
+      Target: "10.0.0.252"
+      Port: 5514
+      Protocol: "udp"
+  all_logs_local:
+    type: "omfwd"
+    facility: "*.*;auth,authpriv.none"
+    config:
+      file: "/var/log/messages"
+  mail_logs:
+    type: "omfwd"
+    facility: "mail.*"
+    config:
+      file: "-/var/log/maillog"
+  cron_logs:
+    type: "omfwd"
+    facility: "cron.*"
+    config:
+      file: "/var/log/cron"
+  boot_logs:
+    type: "omfwd"
+    facility: "local7.*"
+    config:
+      file: "-/var/log/boot.log"
+rsyslog::client::modules:
+  imuxsock: {}
+  imfile:
+    config:
+      PollingInterval: 10
+# Authentication
+IMS_Configuration:
+  SSSD:
+    sssd:
+      - domains: "LDAP"
+      - config_file_version: 2
+      - services: "sudo"
+    domain/LDAP:
+      - id_provider: "ldap"
+      - ldap_uri: "ldap://ldap.example.com"
+      - ldap_search_base: "dc=example,dc=com"
+      - auth_provider: "krb5"
+      - krb5_server: "kerberos.example.com"
+      - krb5_realm: "EXAMPLE.COM"
+      - cache_credentials: true
+      - min_id: 10000
+      - max_id: 20000
+      - enumerate: false
+# Telegraf common configuration
+monitoring_enabled: true
+telegraf::global_tags:
+  service: "%{::service}"
+  cluster: "%{::cluster}"
+  device: "%{::device}"
+  service_number: "%{::service_number}"
+  device_number: "%{::device_number}"
+  node_name: "%{::node_name}"
+  datacenter: "%{::datacenter}"
+  type: "%{::virtual}"
+telegraf::interval: "1m"
+telegraf::round_interval: true
+telegraf::metric_batch_size: 1000
+telegraf::metric_buffer_limit: 10000
+telegraf::collection_jitter: "0s"
+telegraf::flush_interval: "1m"
+telegraf::flush_jitter: "0m"
+telegraf::debug: false
+telegraf::quiet: false
+telegraf::hostname: ""
+telegraf::omit_hostname: false
+# Firewall configuration for Virtual Machine Site
+lsst_firewall_default_zone: "public"
+lsst_firewall_default_target: "DROP"
+lsst_firewall_default_sources:
+  - 10.0.0.0/24
+# Module variables
+# Sal custom configuration
+ts_sal::lsst_users_home_dir: "/home"
+ts_sal::firewall_dds_zone_name: "lsst_zone"
+ts_sal::ts_sal_path: "/opt/ts_sal"
+ts_sal::ts_opensplice_path: "/opt/ts_opensplice"
+ts_sal::ts_sal_repo: "https://github.com/lsst-ts/ts_sal.git"
+ts_sal::ts_sal_branch: "v3.8.40"
+ts_sal::ts_opensplice_repo: "https://github.com/lsst-ts/ts_opensplice.git"
+ts_sal::ts_opensplice_branch: "master"
+ts_sal::ts_python_build_version: "3.6m"
+ts_sal::ts_python_build_location: "/usr/"
+ts_sal::ts_pythonpath: "/usr/lib/python3.6/site-packages/"
+ts_sal::lsst_dds_domain: "auxtel"
+ts_xml::ts_xml_path: "/opt/ts_xml"
+ts_xml::ts_xml_repo: "https://github.com/lsst-ts/ts_xml.git"
+ts_xml::ts_xml_branch: "v3.8.38"
+ts_xml::ts_xml_build_dir: "build"
+ts_xml::ts_xml_user: "salmgr"
+ts_xml::ts_xml_group: "lsst"
+# Make sure SAL uses the desired network interface
+ts_sal::sal_network_interface: "eth1"
+# DHCP Server to be installed on IP: 139.229.162.250/24
+dhcp_pools:
+  "test.vm.dev..lsst.org":
+    network: "10.0.0.0"
+    mask: "255.255.255.0"
+    range:
+      - '10.0.0.100 10.0.0.200'
+    gateway: "10.0.0.1"
+    failover: "failover-partner"
+ignored_subnets:
+  eth0:
+    network: "139.229.160.0"
+    mask: "255.255.255.0"
+dnsdomain:
+  - "cp.cl.lsst.org"
+dnssearchdomains:
+  - "cp.cl.lsst.org"
+  - "cl.lsst.org"
+  - "lsst.org"
+  - "lsst.local"
+  - "162.229.136.in-addr.arpa"
+nameservers:
+  - "139.229.136.35"  # pi-hole temporary DNS content filtering
+  #- "140.252.32.45"  # it doesn't make sense to have
+ntpservers:
+  - "ntp.shoa.cl"
+dhcp_interfaces:
+  - "eth0"

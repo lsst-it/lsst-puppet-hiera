@@ -18,5 +18,7 @@ datacenter/%{datacenter}/role/%{role}.yaml
 datacenter/%{datacenter}.yaml
 site/%{site}.yaml
 role/%{role}.yaml
+type/%{virtual}.yaml
+type/default.yaml
 common.yaml
 ```

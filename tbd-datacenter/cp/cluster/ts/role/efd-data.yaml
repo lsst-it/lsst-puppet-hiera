@@ -1,0 +1,22 @@
+---
+monitored_services:
+  - "efd_ndbd_tier1"
+  - "efd_ndbd_tier2"
+  - "efd_ndbd_tier3"
+
+firewalld::ports:
+  "Datanode tier1":
+    ensure: "present"
+    zone: "public"
+    port: 2202
+    protocol: "tcp"
+  "Datanode tier2":
+    ensure: "present"
+    zone: "public"
+    port: 2203
+    protocol: "tcp"
+  "Datanode tier3":
+    ensure: "present"
+    zone: "public"
+    port: 2204
+    protocol: "tcp"

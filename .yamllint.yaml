@@ -1,5 +1,5 @@
 ---
-extends: default
+extends: "default"
 
 rules:
   # 80 chars should be enough, but don't fail if a line is longer
@@ -9,3 +9,4 @@ rules:
   comments-indentation: false
   comments:
     require-starting-space: false
+  quoted-strings: {quote-type: "double"}

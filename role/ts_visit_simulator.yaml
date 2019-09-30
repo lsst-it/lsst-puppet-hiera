@@ -1,0 +1,18 @@
+---
+classes:
+  - "profile::default"
+  - "profile::ts::ts_visit_simulator"
+visitsim::ts_xml_subsystems:
+  - "dome"
+  - "rotator"
+  - "camera"
+  - "hexapod"
+  - "MTMount"
+  - "m2ms"
+visitsim::ts_xml_languages:
+  - "cpp"
+ts_sal::sal_network_interface: "eth1"
+monitoring_enabled: false
+ts::ts_visit_simulator::sal_network_interface: "ens224"
+ts::ts_visit_simulator::branch: "develop"
+ts::ts:visit_simulator::path: "/opt/ts_visit_simulator"

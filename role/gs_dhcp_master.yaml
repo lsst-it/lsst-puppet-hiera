@@ -1,0 +1,23 @@
+---
+classes:
+  - "profile::default"
+  - "profile::it::gs_dhcp"
+monitoring_enabled: true
+monitored_services:
+  - "dhcpd"
+firewalld::ports:
+  "Opening port for DHCP peering 1":
+    ensure: "present"
+    zone: "public"
+    port: 547
+    protocol: "tcp"
+  "Opening port for DHCP peering 2":
+    ensure: "present"
+    zone: "public"
+    port: 548
+    protocol: "tcp"
+  "Opening port for DHCP Server":  # Client port is already configured on default.pp
+    ensure: "present"
+    zone: "public"
+    port: 67
+    protocol: "udp"

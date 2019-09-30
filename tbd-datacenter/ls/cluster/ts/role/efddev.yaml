@@ -1,0 +1,13 @@
+---
+ts::efd::ts_xml_subsystems:
+  - "dome"
+  - "domeADB"
+  - "domeLWS"
+ts::efd::ts_xml_languages:
+  - "cpp"
+  - "html"
+ts::efd::ts_efd_writers:
+  - command
+  - event
+  - telemetry
+ts_sal::sal_network_interface: "eth1"

@@ -1,15 +1,15 @@
 ---
-language: minimal
+language: "minimal"
 matrix:
   include:
-    - env: TEST=yamllint
+    - env: "TEST=yamllint"
       services:
-        - docker
-      script: ./tests/yamllint.sh
+        - "docker"
+      script: "./tests/yamllint.sh"
 
-    - env: TEST=markdownlint
+    - env: "TEST=markdownlint"
       services:
-        - docker
-      script: ./tests/mdl.sh
+        - "docker"
+      script: "./tests/mdl.sh"
 notifications:
   email: false

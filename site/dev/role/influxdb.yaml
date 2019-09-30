@@ -1,0 +1,6 @@
+---
+country: "DV"
+state: "Development Environment"
+locality: "DevOps city"
+influxdb_opts: ""
+influx_telegraf_db_name: "telegraf"

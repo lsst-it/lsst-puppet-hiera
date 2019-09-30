@@ -1,0 +1,101 @@
+---
+# IT Services Layout
+# Network List at Cerro Pachon:
+#       * 139.229.160.0/24 - General Services Servers
+#       * 139.229.162.0/24 - Users' Network
+#
+# Services List
+# Graylog Master                : 140.252.32.157
+# InfluxDB Master               : 140.252.32.159
+# Grafana                       : 140.252.32.158
+# Puppet Master                 : 140.252.32.139
+
+motd: |
+  _    ___ ___ _____
+  | |  / __/ __|_   _|
+  | |__\__ \__ \ | |
+  |____|___/___/ |_|
+  Server controlled by puppet, configurations may be overwritten.
+  Server configured to use Tucson configuration.
+  Syslog messages sent to graylog, metrics to inflluxdb
+  Any questions or suggestions forward it to IT.
+
+chrony::servers:
+  - "0.us.pool.ntp.org"
+  - "1.us.pool.ntp.org"
+  - "2.us.pool.ntp.org"
+
+ntp:
+  ntp_server_1: "0.us.pool.ntp.org"
+  ntp_server_2: "1.us.pool.ntp.org"
+  ntp_server_3: "2.us.pool.ntp.org"
+
+puppet_agent_run_interval: 3600
+puppet_agent_service_state: "running"
+puppet_master_server: "puppet-master.us.lsst.org"
+
+firewalld_status: "running"
+lsst_firewall_default_zone: "public"
+lsst_firewall_default_target: "DROP"
+lsst_firewall_default_sources:
+  - 140.252.32.0/22
+  - 140.252.115.0/24  # Steward Observatory
+  - 140.252.201.0/24  # DMZ
+  - 139.229.162.0/25  # Cerro Pachon
+  - 139.229.136.0/24  # La Serena Base
+
+#=============================================================================
+# Monitoring Configuration
+#=============================================================================
+# Remote Logging and Graylog Configuration
+#=============================================================================
+rsyslog_host: "gs-graylog-node-01.po.us.lsst.org"
+rsyslog_port: "5514"
+rsyslog_proto: "udp"
+rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
+
+#=============================================================================
+# Telegraf common configuration
+
+monitoring_enabled: true
+telegraf::global_tags:
+  service: "%{::service}"
+  cluster: "%{::cluster}"
+  device: "%{::device}"
+  service_number: "%{::service_number}"
+  device_number: "%{::device_number}"
+  node_name: "%{::node_name}"
+  datacenter: "%{::datacenter}"
+  type: "%{::virtual}"
+telegraf::interval: "1m"
+telegraf::round_interval: true
+telegraf::metric_batch_size: 1000
+telegraf::metric_buffer_limit: 10000
+telegraf::collection_jitter: "0s"
+telegraf::flush_interval: "1m"
+telegraf::flush_jitter: "0m"
+telegraf::debug: false
+telegraf::quiet: false
+telegraf::hostname: ""
+telegraf::omit_hostname: false
+
+#=============================================================================
+# SAL Configuration common for Cerro Pachon
+#=============================================================================
+
+# Module variables
+#####################################################
+# Sal custom configuration
+ts_sal::lsst_users_home_dir: "/home"
+ts_sal::firewall_dds_zone_name: "lsst_zone"
+
+ts_sal::ts_sal_path: "/opt/ts_sal"
+ts_sal::ts_opensplice_path: "/opt/ts_opensplice"
+ts_sal::ts_sal_repo: "https://github.com/lsst-ts/ts_sal.git"
+ts_sal::ts_sal_branch: "master"
+ts_sal::ts_opensplice_repo: "https://github.com/lsst-ts/ts_opensplice.git"
+ts_sal::ts_opensplice_branch: "master"
+
+ts_xml::ts_xml_path: "/opt/ts_xml"
+ts_xml::ts_xml_repo: "https://github.com/lsst-ts/ts_xml.git"
+ts_xml::ts_xml_branch: "master"
