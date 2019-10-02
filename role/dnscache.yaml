@@ -5,4 +5,4 @@ classes:
 dns::forward: "only"
 dns::forwarders:
   - "1.0.0.1"
-  - "4.4.4.4"
+  - "8.8.8.8"
