@@ -13,3 +13,6 @@ packages:
   - "virt-what"
   - "virt-install"
   - "virt-manager"
+libvirt::libvirtd_conf:
+  # yamllint disable-line rule:quoted-strings
+  access_drivers: '[ "polkit" ]'
