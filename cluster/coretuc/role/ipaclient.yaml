@@ -2,5 +2,9 @@
 classes:
   - "profile::core::common"
   - "easy_ipa"
+  - "hosts"
 easy_ipa::ipa_master_fqdn: "idm.lsst.org"
 easy_ipa::domain: "lsst.org"
+hosts::host_entries:
+  idm.lsst.org:
+    ip: "140.252.32.120"
