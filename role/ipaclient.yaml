@@ -1,0 +1,10 @@
+---
+classes:
+  - "profile::core::common"
+  - "easy_ipa"
+easy_ipa::ipa_role: "client"
+easy_ipa::configure_ntp: false
+easy_ipa::install_epel: false
+easy_ipa::install_autofs: false
+easy_ipa::install_sssdtools: false
+easy_ipa::install_kstart: false

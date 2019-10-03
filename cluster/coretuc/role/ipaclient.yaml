@@ -1,0 +1,6 @@
+---
+classes:
+  - "profile::core::common"
+  - "easy_ipa"
+easy_ipa::ipa_master_fqdn: "idm.lsst.org"
+easy_ipa::domain: "lsst.org"
