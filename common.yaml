@@ -5,7 +5,7 @@ ssh::storeconfigs_enabled: false
 ssh::server_options:
   Port: 22
   Protocol: 2
-  AddressFamily: "any"
+  AddressFamily: "inet"
   HostKey: "/etc/ssh/ssh_host_rsa_key"
   SyslogFacility: "AUTH"
   LogLevel: "INFO"
