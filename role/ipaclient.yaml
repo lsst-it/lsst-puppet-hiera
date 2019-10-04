@@ -18,3 +18,7 @@ ssh::server_options:
   AuthorizedKeysCommand: "/usr/bin/sss_ssh_authorizedkeys"
   ChallengeResponseAuthentication: "yes"
   AuthorizedKeysCommandUser: "nobody"
+ssh::client_options:
+  GlobalKnownHostsFile: "/var/lib/sss/pubconf/known_hosts"
+  PubkeyAuthentication: "yes"
+  ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
