@@ -16,6 +16,7 @@ accounts::user_defaults:
     - "wheel"
   managehome: true
   system: false
+  managevim: false
 accounts::user_list:
   root:
     password: "%{facts.root_pw}"
