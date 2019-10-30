@@ -1,5 +1,3 @@
 ---
-easy_ipa::domain: "lsst.cloud"
 easy_ipa::ipa_server_fqdn: "%{facts.fqdn}"
 easy_ipa::ip_address: "%{facts.networking.ip}"
-easy_ipa::ipa_master_fqdn: "ipamaster1.tuc.lsst.cloud"
