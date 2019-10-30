@@ -48,3 +48,6 @@ resolv_conf::searchpath:
   - "lsst.org"
   - "tuc.noao.edu"
   - "noao.edu"
+# defines the uid/gid of the admin user
+# needs to be coordinated between master + replicas
+easy_ipa::idstart: 70000
