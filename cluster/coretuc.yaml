@@ -51,5 +51,6 @@ resolv_conf::searchpath:
 # defines the uid/gid of the admin user
 # needs to be coordinated between master + replicas
 easy_ipa::idstart: 70000
+easy_ipa::idmax: 79999
 easy_ipa::domain: "lsst.cloud"
 easy_ipa::ipa_master_fqdn: "ipamaster1.tuc.lsst.cloud"
