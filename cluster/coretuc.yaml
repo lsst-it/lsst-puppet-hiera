@@ -62,6 +62,7 @@ easy_ipa::install_epel: false
 easy_ipa::install_autofs: false
 easy_ipa::install_sssdtools: false
 easy_ipa::install_kstart: false
+easy_ipa::configure_sshd: false
 lookup_options:
   ssh::server_options:
     merge:
