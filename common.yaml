@@ -1,8 +1,4 @@
 ---
-sshd_banner_content: |
-  *** THIS DEVICE IS MONITORED AND MANAGED BY AURA/LSST ***
-  *** Access to this device is PROHIBITED unless explicitly AUTHORIZED, you are not welcomed ***
-  *** If you are not authorized disconnect NOW. If you fail to disconnect now you may be prosecuted under the USA laws, be advised. ***
 motd: "Server installed without custom motd\n"
 timezone::timezone: "UTC"
 ssh::storeconfigs_enabled: false
