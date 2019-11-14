@@ -1,7 +1,25 @@
 ---
-motd: "Server installed without custom motd\n"
-timezone::timezone: "UTC"
+# Lookup options stay at the top (sort subkeys alphabetically)
+
+lookup_options:
+  sudo::configs:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+
+# Everything else should be sorted alphabetically
+
+baseline_cfg::networkmanager::enable: true
+baseline_cfg::networkmanager::ensure: running
+
 chrony::leapsectz: "right/UTC"
+
+motd: "Server installed without custom motd\n"
+
+rsyslog::use_upstream_repo: true
+rsyslog::feature_packages:
+  - rsyslog-relp
+
 ssh::storeconfigs_enabled: false
 ssh::server_options:
   Port: 22
@@ -55,7 +73,12 @@ easy_ipa::install_autofs: false
 easy_ipa::install_sssdtools: false
 easy_ipa::install_kstart: false
 easy_ipa::configure_sshd: false
+
 ssh::client_options:
   GlobalKnownHostsFile: "/var/lib/sss/pubconf/known_hosts"
   PubkeyAuthentication: "yes"
   ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
+
+sudo::content: system_authnz/sudoers.erb
+
+timezone::timezone: UTC
