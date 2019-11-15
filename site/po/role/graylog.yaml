@@ -27,7 +27,7 @@ firewalld::ports:
     port: 6514
     protocol: "udp"
   "Opening port for Windows Machines in public zone":
-    ensure: present
-    zone: public
+    ensure: "present"
+    zone: "public"
     port: 7514
-    protocol: 'udp'
+    protocol: "udp"
