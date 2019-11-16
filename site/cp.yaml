@@ -17,29 +17,12 @@
 # InfluxDB Slave                : 139.229.160.241 (Not deployed yet)
 # Grafana                       : 139.229.162.105
 # Puppet Master                 : 139.229.160.239 (Not deployed yet)
-motd: |
-  ___   ___ ___ _____
-  | |  / __/ __|_   _|
-  | |__\__ \__ \ | |
-  |____|___/___/ |_|
-  Server controlled by puppet, configurations may be overwritten.
-  Server configured to use Cerro Pachon configuration.
-  Syslog messages sent to graylog, metrics to influxdb
-  Any questions or suggestions forward it to IT.
+
 chrony::servers:
   - "ntp.shoa.cl"
   - "1.cl.pool.ntp.org"
   - "1.south-america.pool.ntp.org"
 
-puppet_agent_run_interval: 3600
-puppet_master_server: "puppet-master.cl.lsst.org"
-puppet_agent_service_state: "running"
-firewalld_status: "running"
-lsst_firewall_default_zone: "public"
-lsst_firewall_default_target: "DROP"
-lsst_firewall_default_sources:
-  - "139.229.160.0/24"
-  - "139.229.162.0/24"
 # Monitoring Configuration
 # Remote Logging and Graylog Configuration
 rsyslog_host: "139.229.136.244"
