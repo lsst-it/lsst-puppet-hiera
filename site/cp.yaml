@@ -26,10 +26,11 @@ motd: |
   Server configured to use Cerro Pachon configuration.
   Syslog messages sent to graylog, metrics to influxdb
   Any questions or suggestions forward it to IT.
-ntp:
-  ntp_server_1: "ntp.shoa.cl"
-  ntp_server_2: "1.cl.pool.ntp.org"
-  ntp_server_3: "1.south-america.pool.ntp.org"
+chrony::servers:
+  - "ntp.shoa.cl"
+  - "1.cl.pool.ntp.org"
+  - "1.south-america.pool.ntp.org"
+
 puppet_agent_run_interval: 3600
 puppet_master_server: "puppet-master.cl.lsst.org"
 puppet_agent_service_state: "running"
