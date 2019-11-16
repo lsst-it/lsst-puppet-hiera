@@ -11,6 +11,8 @@ lookup_options:
   accounts::user_list:
     merge:
       strategy: "deep"
+accounts::group_list:
+  wheel_b: {}
 accounts::user_defaults:
   groups:
     - "wheel_b"
