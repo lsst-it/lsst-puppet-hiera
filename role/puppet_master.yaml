@@ -1,7 +1,0 @@
----
-classes:
-  - "profile::default"
-  - "profile::it::puppet_master"
-profile::it::puppet_master::control_repo_url: "https://github.com/lsst-it/lsst-itconf"
-profile::it::puppet_master::hiera_private_repo_url: "git@github.com:lsst-it/lsst-puppet-hiera-private.git"
-profile::it::puppet_master::hiera_public_repo_url: "https://github.com/lsst-it/lsst-puppet-hiera.git"
