@@ -1,8 +1,0 @@
----
-dns_alt_names: "gs-puppet-master.cl.lsst.org,puppet-master.cl.lsst.org,puppet-master.dev.lsst.org"
-puppet_master_certname: "puppet-master.cl.lsst.org"
-autosign_servers:
-  - "cl.lsst.org"
-  - "us.lsst.org"
-puppet_enc_config_repo: "https://github.com/LSST-IT/cl_puppet_nodes_database.git"
-puppet_enc_config_branch: "master"
