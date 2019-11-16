@@ -100,35 +100,3 @@ ts_xml::ts_xml_path: "/opt/ts_xml"
 ts_xml::ts_xml_repo: "https://github.com/lsst-ts/ts_xml.git"
 ts_xml::ts_xml_branch: "master"
 
-# easy_ipa server options
-# defines the uid/gid of the admin user
-# needs to be coordinated between master + replicas
-easy_ipa::idstart: 70000
-easy_ipa::idmax: 79999
-easy_ipa::domain: "lsst.cloud"
-easy_ipa::ipa_master_fqdn: "ipa1.tuc.lsst.cloud"
-# easy_ipa client options
-easy_ipa::ipa_role: "client"
-easy_ipa::configure_ntp: false
-easy_ipa::install_epel: false
-easy_ipa::install_autofs: false
-easy_ipa::install_sssdtools: false
-easy_ipa::install_kstart: false
-easy_ipa::configure_sshd: false
-lookup_options:
-  ssh::server_options:
-    merge:
-      strategy: "deep"
-  ssh::client_options:
-    merge:
-      strategy: "deep"
-ssh::server_options:
-  KerberosAuthentication: "no"
-  PubkeyAuthentication: "yes"
-  AuthorizedKeysCommand: "/usr/bin/sss_ssh_authorizedkeys"
-  ChallengeResponseAuthentication: "yes"
-  AuthorizedKeysCommandUser: "nobody"
-ssh::client_options:
-  GlobalKnownHostsFile: "/var/lib/sss/pubconf/known_hosts"
-  PubkeyAuthentication: "yes"
-  ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
