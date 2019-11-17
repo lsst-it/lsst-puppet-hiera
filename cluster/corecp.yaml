@@ -21,7 +21,7 @@ accounts::user_defaults:
   managevim: false
 accounts::user_list:
   root:
-    password: "%{facts.root_pw}"
+    password: "%{root_pw}"
     sshkeys:
       # foreman
       # XXX changeme
