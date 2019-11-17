@@ -31,16 +31,3 @@ r10k::webhook::config::protected: false
 r10k::webhook::use_mcollective: false
 r10k::webhook::user: "root"
 r10k::webhook::group: "root"
-sysctl::values::args:
-  net.ipv4.conf.all.arp_filter:
-    value: 1
-    target: "/etc/sysctl.d/91-arp_filter.conf"
-  net.ipv4.conf.default.arp_filter:
-    value: 1
-    target: "/etc/sysctl.d/91-arp_filter.conf"
-  net.ipv4.conf.all.rp_filter:
-    value: 0
-    target: "/etc/sysctl.d/92-rp_filter.conf"
-  net.ipv4.conf.default.rp_filter:
-    value: 0
-    target: "/etc/sysctl.d/92-rp_filter.conf"

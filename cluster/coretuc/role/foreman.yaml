@@ -53,3 +53,16 @@ dhcp::pools:
     gateway: "140.252.35.1"
     range: "140.252.35.5 140.252.35.126"
     search_domains: *dnsdomain
+sysctl::values::args:
+  net.ipv4.conf.all.arp_filter:
+    value: 1
+    target: "/etc/sysctl.d/91-arp_filter.conf"
+  net.ipv4.conf.default.arp_filter:
+    value: 1
+    target: "/etc/sysctl.d/91-arp_filter.conf"
+  net.ipv4.conf.all.rp_filter:
+    value: 0
+    target: "/etc/sysctl.d/92-rp_filter.conf"
+  net.ipv4.conf.default.rp_filter:
+    value: 0
+    target: "/etc/sysctl.d/92-rp_filter.conf"
