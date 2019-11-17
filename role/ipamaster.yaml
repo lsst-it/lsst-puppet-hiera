@@ -14,17 +14,3 @@ easy_ipa::install_epel: false
 easy_ipa::install_autofs: false
 easy_ipa::install_sssdtools: false
 easy_ipa::install_kstart: false
-lookup_options:
-  ssh::server_options:
-    merge:
-      strategy: "deep"
-ssh::server_options:
-  KerberosAuthentication: "no"
-  PubkeyAuthentication: "yes"
-  AuthorizedKeysCommand: "/usr/bin/sss_ssh_authorizedkeys"
-  ChallengeResponseAuthentication: "yes"
-  AuthorizedKeysCommandUser: "nobody"
-ssh::client_options:
-  GlobalKnownHostsFile: "/var/lib/sss/pubconf/known_hosts"
-  PubkeyAuthentication: "yes"
-  ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
