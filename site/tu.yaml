@@ -99,4 +99,3 @@ ts_sal::ts_opensplice_branch: "master"
 ts_xml::ts_xml_path: "/opt/ts_xml"
 ts_xml::ts_xml_repo: "https://github.com/lsst-ts/ts_xml.git"
 ts_xml::ts_xml_branch: "master"
-
