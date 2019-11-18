@@ -178,3 +178,15 @@ dhcp_hosts:
     comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
     mac: "f4:30:b9:48:d5:9a"
     ip: "139.229.162.98"
+resolv_conf::nameservers:
+  - "139.229.162.22"  # dns1
+  - "139.229.162.87"  # dns2
+  - "208.67.222.222"  # These servers have high latency but avoid issues with bad reverse DNS. Change these later.
+  - "208.67.220.220"
+resolv_conf::searchpath:
+  - "cp.lsst.org"
+  - "tuc.lsst.cloud"
+  - "lsst.cloud"
+  - "lsst.org"
+  - "tuc.noao.edu"
+  - "noao.edu"
