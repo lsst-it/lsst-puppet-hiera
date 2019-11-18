@@ -6,3 +6,9 @@ dns::allow_recursion:
   - "139.229.0.0/16"
   - "localnets"
   - "localhost"
+dns::zones:
+  lsst.local:
+    zonetype: "forward"
+    forward: "only"
+    forwarders:
+      - "139.229.136.35"
