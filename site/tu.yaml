@@ -25,10 +25,6 @@ chrony::servers:
   - "1.us.pool.ntp.org"
   - "2.us.pool.ntp.org"
 
-puppet_agent_run_interval: 3600
-puppet_agent_service_state: "running"
-puppet_master_server: "puppet-master.us.lsst.org"
-
 firewalld_status: "running"
 lsst_firewall_default_zone: "public"
 lsst_firewall_default_target: "DROP"

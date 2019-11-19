@@ -19,9 +19,6 @@ motd: |
   Server configured to use La Serena configuration.
   Syslog messages sent to graylog, metrics to influxdb
   Any questions or suggestions forward it to IT.
-puppet_agent_run_interval: 3600
-puppet_master_server: "puppet-master.cl.lsst.org"
-puppet_agent_service_state: "running"
 firewalld_status: "running"
 lsst_firewall_default_zone: "public"
 lsst_firewall_default_target: "DROP"
