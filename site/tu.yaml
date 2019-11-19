@@ -25,11 +25,6 @@ chrony::servers:
   - "1.us.pool.ntp.org"
   - "2.us.pool.ntp.org"
 
-ntp:
-  ntp_server_1: "0.us.pool.ntp.org"
-  ntp_server_2: "1.us.pool.ntp.org"
-  ntp_server_3: "2.us.pool.ntp.org"
-
 puppet_agent_run_interval: 3600
 puppet_agent_service_state: "running"
 puppet_master_server: "puppet-master.us.lsst.org"

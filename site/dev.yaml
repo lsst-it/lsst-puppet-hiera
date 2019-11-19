@@ -5,10 +5,6 @@ motd: |
     * Influx Server:  10.0.0.251 <vagrant up influx>
     * Grafana Server: 10.0.0.252 <vagrant up grafana>
     * Graylog Server: 10.0.0.253 <vagrant up graylog>
-ntp:
-  ntp_server_1: "0.south-america.pool.ntp.org"
-  ntp_server_2: "0.north-america.pool.ntp.org"
-  ntp_server_3: "1.north-america.pool.ntp.org"
 puppet_agent_run_interval: 3600
 puppet_master_server: "puppet-master.dev.lsst.org"
 puppet_agent_service_state: "running"
