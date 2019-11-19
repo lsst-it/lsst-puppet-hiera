@@ -1,7 +1,0 @@
----
-classes:
-  - "profile::default"
-  - "profile::ts::ts_intcluster"
-kernel_devel: "kernel-devel-3.10.0-693.el7.x86_64"
-vagrant_rpm: "https://releases.hashicorp.com/vagrant/2.0.4/vagrant_2.0.4_x86_64.rpm"
-virtualbox_version: "VirtualBox-5.2"

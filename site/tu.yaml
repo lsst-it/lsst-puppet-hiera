@@ -25,15 +25,6 @@ chrony::servers:
   - "1.us.pool.ntp.org"
   - "2.us.pool.ntp.org"
 
-ntp:
-  ntp_server_1: "0.us.pool.ntp.org"
-  ntp_server_2: "1.us.pool.ntp.org"
-  ntp_server_3: "2.us.pool.ntp.org"
-
-puppet_agent_run_interval: 3600
-puppet_agent_service_state: "running"
-puppet_master_server: "puppet-master.us.lsst.org"
-
 firewalld_status: "running"
 lsst_firewall_default_zone: "public"
 lsst_firewall_default_target: "DROP"
@@ -78,24 +69,3 @@ telegraf::debug: false
 telegraf::quiet: false
 telegraf::hostname: ""
 telegraf::omit_hostname: false
-
-#=============================================================================
-# SAL Configuration common for Cerro Pachon
-#=============================================================================
-
-# Module variables
-#####################################################
-# Sal custom configuration
-ts_sal::lsst_users_home_dir: "/home"
-ts_sal::firewall_dds_zone_name: "lsst_zone"
-
-ts_sal::ts_sal_path: "/opt/ts_sal"
-ts_sal::ts_opensplice_path: "/opt/ts_opensplice"
-ts_sal::ts_sal_repo: "https://github.com/lsst-ts/ts_sal.git"
-ts_sal::ts_sal_branch: "master"
-ts_sal::ts_opensplice_repo: "https://github.com/lsst-ts/ts_opensplice.git"
-ts_sal::ts_opensplice_branch: "master"
-
-ts_xml::ts_xml_path: "/opt/ts_xml"
-ts_xml::ts_xml_repo: "https://github.com/lsst-ts/ts_xml.git"
-ts_xml::ts_xml_branch: "master"

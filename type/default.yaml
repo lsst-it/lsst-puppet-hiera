@@ -1,6 +1,4 @@
 ---
-ts_sal::sal_network_interface: "eth1"
-
 telegraf::inputs:
   cpu:
     - percpu: true
