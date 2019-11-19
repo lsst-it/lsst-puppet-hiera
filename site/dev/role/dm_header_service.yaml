@@ -25,7 +25,6 @@ headerservice::setup_env_content: |
   export TS_XML_DIR=$LSST_SDK_INSTALL/../ts_xml
   source $OSPL_HOME/release.com
 headerservice::lsst_sal_repo_url: "https://project.lsst.org/ts/lsstrepo/"
-ts_sal::sal_network_interface: "eth1"
 headerservice::header_service_www_output:
   - "/opt/www"
   - "/opt/www/DMHS_filerepo"
