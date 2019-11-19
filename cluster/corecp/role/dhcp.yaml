@@ -1,0 +1,105 @@
+---
+dhcp::interfaces:
+  - "ens192"
+dhcp::default_lease_time: 43200
+dhcp::max_lease_time: 86400
+dhcp::authoritative: false
+dhcp::ddns_update_style: "none"
+dhcp::logfacility: "daemon"
+# dnsdomain requires an array but only uses the first element to set the domain
+dhcp::dnsdomain: &dnsdomain
+  - "cp.lsst.org"
+  - "cp.cl.lsst.org"
+  - "cl.lsst.org"
+  - "lsst.org"
+  - "lsst.local"
+dhcp::nameservers:
+  - "139.229.162.22"
+  - "139.229.162.87"
+  - "208.67.222.222"
+dhcp::ntpservers:
+  - "ntp.shoa.cl"
+  - "1.cl.pool.ntp.org"
+  - "1.south-america.pool.ntp.org"
+dhcp::bootp: true
+dhcp::pxeserver: "139.229.162.45"  # foreman
+# theforeman/dhcp 5.0.1 only supports `option domain-search` per pool
+dhcp::pools:
+  aura_ls:
+    network: "139.229.158.192"
+    mask: "255.255.255.192"
+    gateway: "139.229.158.254"
+    range: "139.229.158.193 139.229.158.253"
+    search_domains: *dnsdomain
+  contractors_cp:
+    network: "139.229.191.0"
+    mask: "255.255.255.128"
+    gateway: "139.229.191.126"
+    range: "139.229.191.1 139.229.191.100"
+    search_domains: *dnsdomain
+  guests_cp:
+    network: "139.229.191.128"
+    mask: "255.255.255.128"
+    gateway: "139.229.191.254"
+    range: "139.229.191.129 139.229.191.239"
+    search_domains: *dnsdomain
+  guests_ls:
+    network: "139.229.159.128"
+    mask: "255.255.255.128"
+    gateway: "139.229.159.254"
+    range: "139.229.159.129 139.229.159.253"
+    search_domains: *dnsdomain
+  tcontractors_ls:
+    network: "139.229.158.128"
+    mask: "255.255.255.192"
+    gateway: "139.229.158.190"
+    range: "139.229.158.129 139.229.158.189"
+    search_domains: *dnsdomain
+  ucontractors_ls:
+    network: "139.229.159.0"
+    mask: "255.255.255.128"
+    gateway: "139.229.159.126"
+    range: "139.229.159.1 139.229.159.125"
+    search_domains: *dnsdomain
+  users:
+    network: "139.229.162.0"
+    mask: "255.255.255.128"
+    gateway: "139.229.162.126"
+    range:
+      - "139.229.162.2 139.229.162.89"
+      - "139.229.162.108 139.229.162.109"
+      - "139.229.162.122 139.229.162.123"
+    search_domains: *dnsdomain
+dhcp::hosts:
+  M207-gs-plotter-01.cp.cl.lsst.org:
+    comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
+    mac: "F4:30:B9:48:D5:9A"
+    ip: "139.229.162.98"
+  M207-gs-printer-01.cp.cl.lsst.org:
+    comment: "Printer configuration: https://jira.lsstcorp.org/browse/IHS-1787"
+    mac: "58:38:79:08:5B:07"
+    ip: "139.229.162.99"
+  dimm-dimm:
+    comment: "Requested for DIMM https://jira.lsstcorp.org/browse/IHS-2341"
+    mac: "00:0C:29:61:59:A8"
+    ip: "139.229.191.103"
+  dimm-esci:
+    comment: "Requested for DIMM https://jira.lsstcorp.org/browse/IHS-2341"
+    mac: "AC:1F:6B:6B:63:12"
+    ip: "139.229.191.102"
+  dimm-ipmi:
+    comment: "Requested for DIMM https://jira.lsstcorp.org/browse/IHS-2341"
+    mac: "AC:1F:6B:6B:5F:B1"
+    ip: "139.229.191.101"
+  dimm-laptop:
+    comment: "Requested for DIMM https://jira.lsstcorp.org/browse/IHS-2341"
+    mac: "54:B2:03:1C:BB:D3"
+    ip: "139.229.191.65"
+  dimm-nas:
+    comment: "Requested for DIMM https://jira.lsstcorp.org/browse/IHS-2341"
+    mac: "00:0C:29:E3:6C:F5"
+    ip: "139.229.191.104"
+  gs-wlc-master:
+    comment: "Main Wireless Controller Summit"
+    mac: "40:CE:24:F7:E2:73"
+    ip: "139.229.162.61"
