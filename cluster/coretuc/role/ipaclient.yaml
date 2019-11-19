@@ -1,8 +1,0 @@
----
-classes:
-  - "profile::core::common"
-  - "easy_ipa"
-  - "hosts"
-hosts::host_entries:
-  idm.lsst.org:
-    ip: "140.252.32.120"

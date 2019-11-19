@@ -3,7 +3,4 @@ classes:
   - "profile::core::common"
   - "dns"
 dns::forward: "only"
-dns::forwarders:
-  - "1.0.0.1"
-  - "8.8.8.8"
 dns::listen_on_v6: false

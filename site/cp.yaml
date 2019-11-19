@@ -17,28 +17,12 @@
 # InfluxDB Slave                : 139.229.160.241 (Not deployed yet)
 # Grafana                       : 139.229.162.105
 # Puppet Master                 : 139.229.160.239 (Not deployed yet)
-motd: |
-  ___   ___ ___ _____
-  | |  / __/ __|_   _|
-  | |__\__ \__ \ | |
-  |____|___/___/ |_|
-  Server controlled by puppet, configurations may be overwritten.
-  Server configured to use Cerro Pachon configuration.
-  Syslog messages sent to graylog, metrics to influxdb
-  Any questions or suggestions forward it to IT.
-ntp:
-  ntp_server_1: "ntp.shoa.cl"
-  ntp_server_2: "1.cl.pool.ntp.org"
-  ntp_server_3: "1.south-america.pool.ntp.org"
-puppet_agent_run_interval: 3600
-puppet_master_server: "puppet-master.cl.lsst.org"
-puppet_agent_service_state: "running"
-firewalld_status: "running"
-lsst_firewall_default_zone: "public"
-lsst_firewall_default_target: "DROP"
-lsst_firewall_default_sources:
-  - "139.229.160.0/24"
-  - "139.229.162.0/24"
+
+chrony::servers:
+  - "ntp.shoa.cl"
+  - "1.cl.pool.ntp.org"
+  - "1.south-america.pool.ntp.org"
+
 # Monitoring Configuration
 # Remote Logging and Graylog Configuration
 rsyslog_host: "139.229.136.244"
@@ -194,3 +178,15 @@ dhcp_hosts:
     comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
     mac: "f4:30:b9:48:d5:9a"
     ip: "139.229.162.98"
+resolv_conf::nameservers:
+  - "139.229.162.22"  # dns1
+  - "139.229.162.87"  # dns2
+  - "208.67.222.222"  # These servers have high latency but avoid issues with bad reverse DNS. Change these later.
+  - "208.67.220.220"
+resolv_conf::searchpath:
+  - "cp.lsst.org"
+  - "tuc.lsst.cloud"
+  - "lsst.cloud"
+  - "lsst.org"
+  - "tuc.noao.edu"
+  - "noao.edu"

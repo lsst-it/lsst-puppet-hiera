@@ -6,7 +6,10 @@ ssh::server_options:
   Port: 22
   Protocol: 2
   AddressFamily: "inet"
-  HostKey: "/etc/ssh/ssh_host_rsa_key"
+  HostKey:
+    - "/etc/ssh/ssh_host_rsa_key"
+    - "/etc/ssh/ssh_host_ecdsa_key"
+    - "/etc/ssh/ssh_host_ed25519_key"
   SyslogFacility: "AUTH"
   LogLevel: "INFO"
   LoginGraceTime: 120
@@ -16,7 +19,7 @@ ssh::server_options:
   IgnoreUserKnownHosts: "no"
   IgnoreRhosts: "no"
   PasswordAuthentication: "no"
-  ChallengeResponseAuthentication: "no"
+  ChallengeResponseAuthentication: "yes"
   GSSAPIAuthentication: "yes"
   GSSAPICleanupCredentials: "yes"
   UsePAM: "yes"
@@ -32,3 +35,26 @@ ssh::server_options:
   Banner: "none"
   XAuthLocation: "/usr/bin/xauth"
   Subsystem: "sftp /usr/libexec/openssh/sftp-server"
+  KerberosAuthentication: "no"
+  AuthorizedKeysCommand: "/usr/bin/sss_ssh_authorizedkeys"
+  AuthorizedKeysCommandUser: "nobody"
+
+# easy_ipa server options
+# defines the uid/gid of the admin user
+# needs to be coordinated between master + replicas
+easy_ipa::idstart: 70000
+easy_ipa::idmax: 79999
+easy_ipa::domain: "lsst.cloud"
+easy_ipa::ipa_master_fqdn: "ipa1.tuc.lsst.cloud"
+# easy_ipa client options
+easy_ipa::ipa_role: "client"
+easy_ipa::configure_ntp: false
+easy_ipa::install_epel: false
+easy_ipa::install_autofs: false
+easy_ipa::install_sssdtools: false
+easy_ipa::install_kstart: false
+easy_ipa::configure_sshd: false
+ssh::client_options:
+  GlobalKnownHostsFile: "/var/lib/sss/pubconf/known_hosts"
+  PubkeyAuthentication: "yes"
+  ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
