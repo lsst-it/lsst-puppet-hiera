@@ -67,8 +67,6 @@ dhcp::pools:
     gateway: "139.229.162.126"
     range:
       - "139.229.162.2 139.229.162.89"
-      - "139.229.162.108 139.229.162.109"
-      - "139.229.162.122 139.229.162.123"
     search_domains: *dnsdomain
 dhcp::hosts:
   M207-gs-plotter-01.cp.cl.lsst.org:
