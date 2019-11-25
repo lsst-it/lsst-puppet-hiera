@@ -23,12 +23,6 @@ chrony::servers:
   - "1.cl.pool.ntp.org"
   - "1.south-america.pool.ntp.org"
 
-# Monitoring Configuration
-# Remote Logging and Graylog Configuration
-rsyslog_host: "139.229.136.244"
-rsyslog_port: "5514"
-rsyslog_proto: "udp"
-rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
 rsyslog::client::global_config:
   workDirectory:
     value: "/var/log"

@@ -36,16 +36,6 @@ lsst_firewall_default_sources:
   - 139.229.136.0/24  # La Serena Base
 
 #=============================================================================
-# Monitoring Configuration
-#=============================================================================
-# Remote Logging and Graylog Configuration
-#=============================================================================
-rsyslog_host: "gs-graylog-node-01.po.us.lsst.org"
-rsyslog_port: "5514"
-rsyslog_proto: "udp"
-rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
-
-#=============================================================================
 # Telegraf common configuration
 
 monitoring_enabled: true

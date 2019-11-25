@@ -27,15 +27,7 @@ lsst_firewall_default_sources:
   - "139.229.162.0/24"
   - "140.252.32.0/23"
   - "140.252.90.64/27"  # VPN
-#=============================================================================
-# Monitoring Configuration
-#=============================================================================
-# Remote Logging and Graylog Configuration
-#=============================================================================
-rsyslog_host: "139.229.136.244"
-rsyslog_port: "5514"
-rsyslog_proto: "udp"
-rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
+
 rsyslog::client::global_config:
   workDirectory:
     value: "/var/log"
