@@ -73,7 +73,7 @@ dhcp::pools:
     mask: "255.255.255.0"
     gateway: "139.229.163.254"
     range:
-      - "139.229.163.1 139.229.163.254"
+      - "139.229.163.1 139.229.163.253"
     search_domains: *dnsdomain
 dhcp::hosts:
   M207-gs-plotter-01.cp.cl.lsst.org:
@@ -108,3 +108,10 @@ dhcp::hosts:
     comment: "Main Wireless Controller Summit"
     mac: "40:CE:24:F7:E2:73"
     ip: "139.229.162.61"
+  conference-voip:
+    comment: "Summit conference room VOIP"
+    mac: "52:54:00:F5:63:7E"
+    ip: "139.229.163.200"
+  dns1:  # XXX: Check if this reservation should live in foreman or should be a static IP address.
+    mac: "52:54:00:F5:63:7E"
+    ip: "139.229.162.22"
