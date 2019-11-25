@@ -68,6 +68,13 @@ dhcp::pools:
     range:
       - "139.229.162.2 139.229.162.89"
     search_domains: *dnsdomain
+  users_163:
+    network: "139.229.163.0"
+    mask: "255.255.255.0"
+    gateway: "139.229.163.254"
+    range:
+      - "139.229.163.1 139.229.163.254"
+    search_domains: *dnsdomain
 dhcp::hosts:
   M207-gs-plotter-01.cp.cl.lsst.org:
     comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
