@@ -115,3 +115,9 @@ dhcp::hosts:
   dns1:  # XXX: Check if this reservation should live in foreman or should be a static IP address.
     mac: "52:54:00:F5:63:7E"
     ip: "139.229.162.22"
+  ups194:
+    mac: "00:20:85:e3:c6:c2"
+    ip: "139.229.162.122"
+  chilelaptop8:  # XXX: figure out who owns this device
+    mac: "9c:eb:e8:4f:67:5a"
+    ip: "139.229.162.84"
