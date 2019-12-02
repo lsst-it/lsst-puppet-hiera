@@ -2,65 +2,55 @@
 tuned::profile: "latency-performance"
 selinux::mode: "disabled"
 firewall::ensure: "stopped"
-sudo::config_file_replace: false
-sudo::purge: false
 sudo::configs:
   wheel:
     content: "%wheel ALL=(ALL) NOPASSWD: ALL"
-lookup_options:
-  accounts::user_list:
-    merge:
-      strategy: "deep"
-accounts::user_defaults:
-  groups:
-    - "wheel"
-  managehome: true
-  system: false
-  managevim: false
 accounts::user_list:
-  root:
-    password: "%{facts.root_pw}"
-    sshkeys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDUB0OC/01VRh98rWDLta493+SlN8UNbMKGC8QdHGOy844Ae2eHijlZqmasrJaUA0UH56hmdTVKD7HDjKFN107t1P9TN1SvMV+exL54mUKgETya9V9juRy2/gYhdT55A4i+wGPNcRK1hgS4mCNJHKXhaSl8xufFU95Q0xNnhz0xoBc73EpkrGaUvzmYJAshQokknO66G2u9nEy4yvy0Q1IsSjq5BDt3rtPSD6RKLg+1mWeHNdd8ky3Pe9TXZLo4wav//WnSmfTSE1P8JsNVpcWKvsT5y5rnmnPn5siLYlqvUC4xfUXxR95NX1alPfsIzEHNERzCLcDK9KyqGaKLBVjtyu0LQHu2WadhPY1h9n1ey0haps8QCfNSmNGSVedSTfm5Nf90EtZ7d/eDXuzlBd2nIVn+o0BUa2zBUEI9KzX8t/H+HJabBo9cl2nQ9/EurN1OsgH6bwiTt5sQkHKcJl24bfgyo8sXC5mi2T8cQLQrkY4kuBKV7X3fImdERc4c+fk= comcam-cluter"
-  jhoblitt:
-    sshkeys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZFV9AL2qPh6CV+DeY32oyg0jCkxkbCHVSPHOoikDkwzwMW/7QQdRI8TJ0h8vpFi15pNyu+n7s7MJSWdg5yUvTCataVpOndDElDz10DaEcGIHNq8/qjEPiHulj/KUoDkEU+yMoWY8jRs3ARyL+6p6LDUBsWpzIY8jMOaEVUJjlVt+0ih2a/D3re0daws6w3mBbmLjitHLS5f2YJKlStIHWCWjMXvP5tqUsvhHvIQH/csBQGXnUiRxR8YSJK9u3CMvTzx6PnC7p98yRCOOrMRQ7yT7vuXyXsk7qoUpArUe/T5nEcwRA/21QVurJ1s3in/mpFI0Ogg5kD7NpFqoTq6itBxbPz7DwaOyjEltJBjQAEvuvfHDJYsBTM3fpfEt5jR8ieuDta1214tr5qVOmR17JonssV7/ksizATm1KkMA7+Q8CWCgrFdZmEMaFjav2U72EWyLRe5utxQV+dWPnxd13NxVu6sgM3CBEC4HzOBMf+upt8tMvjLBjci1sbhCAvvU= github2"
-  igoodenow:
-    sshkeys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDaTnlA3vurS5Fg8gKMxXnkad4CNzHn8OP0sCkZ9Ft8IW8WZQ5u6TlBoF7swP7Ov01vc5hovz1CUDUGSim3PIqjsN9NRV5OL36Mnx9TrSNEAbxK39qiq2g76y80aXyMUz5pbZSphoCWZpvYgVJ64bE57mXUzvqhVJK7WYOGQ9eRNeVhquCP/lnEuoKaMq+3Lo8iA4fmVAvjWTtuGxcHetUI93j3rIjAOd3P9il36tsKjbSIjkodOKTAsB4bb2iCX/V/0hojjsaVVcsu/3ebeKbE+5RivPT+cErkQ/lLb/pWr/Bwco20CDxGJ1MaNY0qa2Tby5czTWAOD/z98sU6Q7NR igoodenow@sirius"
   tonyj:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAjYFvvEHTSVd5c96HiSg4rYRSQOAkikIUwJWIVswKZHBnqHB3dy3m/zGJEUitv2wYh7Ya2IGzmRcBNULw5k9SuE+EARfHzNl5m99Msa13YVEo7ghZPAKWwqK0fW/qlJSlcSPgUHQoN5fr0E+vxvpZePw0TC28DPon2OZXl9hZdSwUzl+F8Z+S6fXCIGOy4OHbeSfVDjhHyOyDuGa94fxHUZrIfEHvtMSdQWWHN3LN13bUuFyudCfSVA68RsxpydF4R9b3JcdA9WH1FdpbH0mL5uiAFgHD9j+NTTKsdr8VZhDZ9mRPyd6GLN3C8ICkyoHJ0ZM+TcfGkfb2MrDto6Fd tonyj@Valinor"
   turri:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAt+uCQfkXdZ2R8mcnngwPJm1P9jqMX4FxNjnfoznrrMKSjO5DFAlqEdcq3zL81Fd3fzXmHCpPFUbYW/gDsEZCyteOOVBwgDyCVpZ0NQM22/cC2+uDqwykh9vapo235rE9SRDtgFXGib1kXETvfZvzBGdSeQEfwIIWjwVZsPFQvaf4jzfRvS0XzXtKMr2N5Xy0dQ7McAFKbERI2bG/KLDuwz1JICiRhHPEgwin83Od5uft8/+ZYozrgPo2MPaLIWnj2PdGkcMGpB1mqGvXw/s0mOlXbaoJtaYuCZ3op8X9m6pX7DDVnzUDr9zO9b2S9UG31UlwapNDUVYMg2KeP/OdKQ== turri@glastlnx05"
   gmorris:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6bVfiFz7ZQ4Ik+tJ+0jMyieU9x7wdRlfkI9tK6FwsJ gmorris@lsst-dev01.ncsa.illinois.edu"
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM4Doki4HV0BkSUKhQgxsz7ERoJf/EnzcqOx2MWYCLCQ gmorris@cent7d"
       - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAyDNBqyEJdKvyYZQeyCVNl68XKYb386A3LhIzQXviSW7hSiJvQj4r0OW+qwbdg08kDA8KuNt58e7WOFFwm/OgTag/mBBf9FHaTpWt5uXo3oTHd+8x9P6oHKIQtg1i//4zmoBXzLsbrOMyvtRjaQmMPe8YP6/5apzavuSdSrPCDulyBSBqxk1jM88YRWBdjxciYlS2RFrEr8QHT2MYMiG3sBAgZbWP1gaVcbjrr1HF9Z49+lEMCncIwCMrtTht92klAVPKR0gJ4OjatX674VDFr0feSc7hhKd6VxX8txFiZqGzAwIKUQSRP7KBY8TmquQAKNCU7xJEP/qehnEq36bt/Q== gmorris@noric05"
   mhuffer:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeQIzDSRlT9XTf6YWwibci/uNZM4NlZIBTxTcTV3K8q7qmHkNXgVjotv2aAYgj4TjDlENY0Mg0weZ3Qe6sgw6AxRi+W/HWpbrE8LnK4N6U2WFyrm8N5D3Ly/kLX1r1AfWe/bLs76QGqioa2rMn1go0dlfjaCX/Lp51t88/40mwe64ilicY7efxiTcvbo36PMCfpTGjjfrw6XaVKHOqSUO2khvEvrJg0w35ltw7aH6PjNybE7Ohy2SG3hvSpPg/aWOPRYyFJNshPTRt0bm2thzIV6v1nolNEQ0gjE5z0h1sn52fX30DFEcy4yvOYCRGQSYhCdlXKQAyRt9bEeg40L3f mehsys@slac.stanford.edu"
   jgt:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIA70QvCIUUgJbhRwbB5+ZzipmvdwQTwbNAYpcns2/AdjgfZA/YWa90OyHlB1XKp6PEtELAbhxd1PytPurn7oY5mybf1JFVfiloYszllbitXCGvG5W09MFBn/bKtb0dq+g2LcdBF8DRgYWopSKo0qrnRvNcGBi9prDv30EDYH4Kq4ItitlzyPGecihVo3fdZrciW9MErlam45gGKL0YOcASaEW+ISjQsdFYVtzIS4BGLKz9ayWvIUFJna7znRMNiDTuIocz13DP4aht9q3aV3JKMJFbfixgukdkMwxcKW2lNq/OIFeeQbQ0AxxyoWrkh/WBNBz1jcMYdFZk2fqG6Dp jgt@vpn-clients-gw2-113-137.slac.stanford.edu"
   bstalder:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDERE92rv5wY/lGVK4wCNXm4peoQLaedOniL1RvnwB8utt7U8J3zf7OG8UQudJlK+Bd8NXc/J4CvpOUjLUPc1ZfUjII0lNtjQDpz0Ur89QvQxDZTOizF6J9At/RZuEKQvg2SFRpxGu8SSfOh8LBBoz97O7u+6NK0a00+aUGLt/1DcDPeJ8W6OI9s6o/2/RI9n0WlQ5VAmX70g6XgcJ/iwI9WIoaB7oyKboHc7GFg50E3/vZBe0J0eZmdb5l9P2+J54SWazri/WyDlkL8NQHa0mRA7fUTWMYkYeqSyKC9WcDt8HzlrnqAfCfC5sd0H+TbGRprsNvSQ4E+fgfc2pUc2Ol bstalder@malbec.local"
-  jcockrum:
-    sshkeys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA+7nmXxf1pAsBnefdTCeXlAg9aRaAPpOdljoDap9l6uC/91sfsvOWJCg8jpIHmaIyQPqRPzkBrNZHiC1mw+tTmzjS37hNnDlDpv2v9ZfvkIPt8mh627k1VqjjIrf0j0tt/qPTxn5KjcG/kg1Zr/widmvmzJaie70S9yp1Jvs2ucBE9DenkYHF5UcOntmL8Jwwvp8njzsYLwuwths+ZFkJs1VOYApytMGAv8ZBI5Dm+20Kafeb6sUImPsEgxRf66jAaNxWftPxx+u9jzUN2+rnKmvi72KSaWqcXGRHXoqt3K/rgnN0ADYYf2Ay/yjMSwNccIsIZtcDZuWGlkLCZSw1 jcockrum@bastionhost.lsst.org"
-  shahram:
-    sshkeys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAictUaJdM0LsjA4Lx8zWtZOHM82VNrwBaK507GRFW6FcDcs2ggaLQkqAIAmA2kCemkDeM31ylR9QJ4gkM17pq57NITER4MkODR8BmLYLcNPhcJ33Eje5qHuc6wapuE9mg5OJcSeBt/PimdKxqNl+bmYFXe6UkCPiAGFPv6hEobWA7O2p8Tp92SkDhxE0wST8Sxs/FpQN5LWQ8BjOU3mdbOZairdIXHzdl308VY0aMYvD/uhi22l6CndCTCRe8WJ0UjOaY5CmKHQZWVb1auxFj0LEz1qVB/ZZd9Kn0NPJ2f3zzll8mJCZSUJtcLZCgGiX9Dyf4J071aHUTUdXe+5UnPQ== rsa-key-20190116"
   homer:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA5GMK3DZzZ+V8bzIpkiV0JRV8e9p7yBOI5iZLtijGMMeuMcvr0RabBEz28490/T1WbRkJ2fIvWF9snkjdb2HXOZ19vGKH9491v/vE/s7j9blvrtKucBXnzjmsnQliP7DRxG2B1I15FDdrCkvakW62XmPNj3xFAbhkFix5Y4rN1YMnKWWbA9k4Qy7jJ451GaykDouORE5lol4l+fdcj8w4AQJd3bQ8HCgYaKQNhiDHnrBDIXssKYxL1f7ZafIhvglWcU97SqSVtXOrmpBThOtcEMuihgJVoW5HTLBvaI+p6PJr1jMT6mD4Ww9UF+0yfTI9nd6OHpETRne3DuWW7YrvGw== homer@rhel6-64j"
   aeisner:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1JWPkL/KbTvOG2c0U3LYeVIiRs/bkF4iovVZmYVcXYUublaDddj0SqFqGJM+W83GJnzdRzpECPDN2B5/TdyN65hMdI2joKBWv4pfwN37g4F0E7Jb/DTVEDLp7reUdIC0OGSVovUTuI2cMIApajUrhcjf6OpnhI/DoCwA3RTpqkrqNgE4NUhW37poUKCIkYFaPqXHLd4uDt4N2e51aqdvqrpSzVQKSEaR0G2SDGJW/KhZvsCNKYWrNa0gcKXf0HBYar5qCnXuCKatji0UQsXPSnQKSfC+9iDiFJepg3H6PMNiOW5gp2CooGuqRxtsq9lWlu+RJUid6LylQfM9wUqEhw== eisner@rhel6-64a"
   cslage:
+    groups:
+      - "wheel"
     sshkeys:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBaopY7ZvvlhVcCUZw12f4tQT64ipR1K3LWES+WnGJhFeevP3Jbm8jNBR0aYM4mrcwJfbPIcXLaiCSpzODKYW3YK4hpMZHGR3+ZM31eLECRgFtFsy1a7mZZAzIVn2Hcfu5E2RayB2AqVRQDBZh9YoMTMp1+CPTEQkBlT9dO+eGd5Wj4YkklRUy3gLEFBFtH0TeIcuFUgcP1rn5XV+nz3JvQtl35Z+/jhTpV2IfSdBuwga867JUQrcA40OajuynfphOJSSWnr5oL/l98KsYewe3pyuzLtmaRc2XGzIwHqO4kQgXZxjsGyfNV4vAMp7wwaAW65iFY+u0m+AML0BkiKjj cslage@Craigs-MacBook-Air.local"
 puppet_agent::package_version: "6.7.0"
