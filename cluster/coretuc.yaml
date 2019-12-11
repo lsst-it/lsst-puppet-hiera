@@ -4,13 +4,3 @@ selinux::mode: "disabled"
 firewall::ensure: "stopped"
 puppet_agent::package_version: "6.7.0"
 puppet_agent::collection: "puppet6"
-resolv_conf::nameservers:
-  - "140.252.34.140"
-  - "1.0.0.1"
-  - "8.8.8.8"
-resolv_conf::searchpath:
-  - "tuc.lsst.cloud"
-  - "lsst.cloud"
-  - "lsst.org"
-  - "tuc.noao.edu"
-  - "noao.edu"
