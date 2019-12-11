@@ -124,6 +124,3 @@ dhcp::hosts:
   ups194:
     mac: "00:20:85:e3:c6:c2"
     ip: "139.229.162.122"
-  chilelaptop8:  # XXX: figure out who owns this device
-    mac: "9c:eb:e8:4f:67:5a"
-    ip: "139.229.162.84"
