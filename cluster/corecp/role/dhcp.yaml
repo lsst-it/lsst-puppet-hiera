@@ -127,3 +127,6 @@ dhcp::hosts:
   ups194:
     mac: "00:20:85:e3:c6:c2"
     ip: "139.229.162.122"
+  cloud1:  # DIMM Raspberry Pi, DIMM switch port 13
+    mac: "b8:27:eb:b9:36:fa"
+    ip: "139.229.170.198"
