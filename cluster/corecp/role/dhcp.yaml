@@ -77,6 +77,13 @@ dhcp::pools:
       # 139.229.163.240/28 is reserved for the network gateway and static
       # IP addresses.
     search_domains: *dnsdomain
+  control_auxtel:
+    network: "139.229.170.0"
+    mask: "255.255.255.0"
+    gateway: "139.229.170.254"
+    range:
+      - "139.229.170.64 139.229.170.95"
+    search_domains: *dnsdomain
 dhcp::hosts:
   M207-gs-plotter-01.cp.cl.lsst.org:
     comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
