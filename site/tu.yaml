@@ -98,3 +98,16 @@ accounts::user_list:
       - "wheel_b"
     sshkeys:
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE8XVjITG6l2q37rDrL037aB2vDr0HsdXAl1ffmhj9TK adrien@faraday"
+
+resolv_conf::nameservers:
+  - "140.252.34.140"
+  - "140.252.34.141"
+  - "1.0.0.1"
+resolv_conf::searchpath:
+  - "tuc.lsst.cloud"
+  - "tu.lsst.org"
+  - "cp.lsst.org"
+  - "ls.lsst.org"
+  - "lsst.org"
+  - "tuc.noao.edu"
+  - "noao.edu"

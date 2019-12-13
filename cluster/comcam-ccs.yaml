@@ -55,16 +55,6 @@ accounts::user_list:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBaopY7ZvvlhVcCUZw12f4tQT64ipR1K3LWES+WnGJhFeevP3Jbm8jNBR0aYM4mrcwJfbPIcXLaiCSpzODKYW3YK4hpMZHGR3+ZM31eLECRgFtFsy1a7mZZAzIVn2Hcfu5E2RayB2AqVRQDBZh9YoMTMp1+CPTEQkBlT9dO+eGd5Wj4YkklRUy3gLEFBFtH0TeIcuFUgcP1rn5XV+nz3JvQtl35Z+/jhTpV2IfSdBuwga867JUQrcA40OajuynfphOJSSWnr5oL/l98KsYewe3pyuzLtmaRc2XGzIwHqO4kQgXZxjsGyfNV4vAMp7wwaAW65iFY+u0m+AML0BkiKjj cslage@Craigs-MacBook-Air.local"
 puppet_agent::package_version: "6.7.0"
 puppet_agent::collection: "puppet6"
-resolv_conf::nameservers:
-  - "140.252.34.140"
-  - "1.0.0.1"
-  - "8.8.8.8"
-resolv_conf::searchpath:
-  - "tuc.lsst.cloud"
-  - "lsst.cloud"
-  - "lsst.org"
-  - "tuc.noao.edu"
-  - "noao.edu"
 packages:
   # required for postfix sasl auth
   - "cyrus-sasl-plain"
