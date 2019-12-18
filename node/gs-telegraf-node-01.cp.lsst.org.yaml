@@ -5,7 +5,7 @@ classes:
 telegraf::inputs:
   snmp:
     - agents:
-        - "139.229.162.122" # Auxtel UPS
+        - "139.229.162.122"  # Auxtel UPS
         - "139.229.162.126"
       community: "lsst_network"
       version: 1
