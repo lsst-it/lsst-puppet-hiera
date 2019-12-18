@@ -2,7 +2,7 @@
 ---
 # See lsst-itconf/site/profile/manifests/core/common.pp
 classes:
-#  - timezone  # skipped: adds debconf dependency
+  - timezone
 #  - chrony    # skipped: not strictly necessary right now, dimm has ntp configured
 #  - ssh       # skipped: too intrusive
 #  - sudo      # skipped: too intrusive, there's about 15 manual sudo entries for the DIMM user
