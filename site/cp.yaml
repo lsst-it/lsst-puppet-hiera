@@ -18,6 +18,7 @@
 # Grafana                       : 139.229.162.105
 # Puppet Master                 : 139.229.160.239 (Not deployed yet)
 
+easy_ipa::ipa_master_fqdn: "ipa1.cp.lsst.org"
 
 rsyslog::client::global_config:
   workDirectory:

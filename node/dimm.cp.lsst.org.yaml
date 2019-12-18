@@ -10,9 +10,6 @@ classes:
   - puppet_agent
   - easy_ipa
   - ufw
-# Join to the local IPA server - it's a master as well and the DIMM routing configuration can't
-# get to ipa1.tuc.lsst.cloud
-easy_ipa::ipa_master_fqdn: "ipa1.cp.lsst.org"
 ufw::allow:
   "dimm-webserver-16200":
     direction: "IN"
