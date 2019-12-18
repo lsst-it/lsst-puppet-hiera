@@ -88,3 +88,12 @@ dns::additional_directives:
   - "    category update { update_file; };"
   - "    category dispatch { dispatch_file; };"
   - "};"
+
+files:
+  "/var/log/named":
+    ensure: "directory"
+    owner: "named"
+    group: "named"
+    mode: "0750"
+    backup: false
+    purge: false
