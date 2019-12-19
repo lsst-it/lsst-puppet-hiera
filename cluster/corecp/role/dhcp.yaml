@@ -7,20 +7,13 @@ dhcp::authoritative: false
 dhcp::ddns_update_style: "none"
 dhcp::logfacility: "daemon"
 # dnsdomain requires an array but only uses the first element to set the domain
-dhcp::dnsdomain: &dnsdomain
-  - "cp.lsst.org"
-  - "cp.cl.lsst.org"
-  - "cl.lsst.org"
-  - "lsst.org"
-  - "lsst.local"
-dhcp::nameservers:
-  - "139.229.162.22"
-  - "139.229.162.87"
-  - "208.67.222.222"
-dhcp::ntpservers:
-  - "ntp.shoa.cl"
-  - "1.cl.pool.ntp.org"
-  - "1.south-america.pool.ntp.org"
+
+# The following keys are defined in `site/cp.yaml` as they are shared between
+# the `dhcp`, `resolv_conf`, and `chrony` classes:
+# - dhcp::dnsdomain
+# - dhcp::nameservers
+# - dhcp::ntpservers
+
 dhcp::bootp: true
 dhcp::pxeserver: "139.229.162.45"  # foreman
 # theforeman/dhcp 5.0.1 only supports `option domain-search` per pool
@@ -30,7 +23,7 @@ dhcp::pools:
     mask: "255.255.255.192"
     gateway: "139.229.158.254"
     range: "139.229.158.193 139.229.158.253"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   contractors_cp:
     network: "139.229.191.0"
     mask: "255.255.255.128"
@@ -38,38 +31,38 @@ dhcp::pools:
     range:
       - "139.229.191.1 139.229.191.64"  # .65: dimm-laptop
       - "139.229.191.66 139.229.191.100"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   guests_cp:
     network: "139.229.191.128"
     mask: "255.255.255.128"
     gateway: "139.229.191.254"
     range: "139.229.191.129 139.229.191.239"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   guests_ls:
     network: "139.229.159.128"
     mask: "255.255.255.128"
     gateway: "139.229.159.254"
     range: "139.229.159.129 139.229.159.253"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   tcontractors_ls:
     network: "139.229.158.128"
     mask: "255.255.255.192"
     gateway: "139.229.158.190"
     range: "139.229.158.129 139.229.158.189"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   ucontractors_ls:
     network: "139.229.159.0"
     mask: "255.255.255.128"
     gateway: "139.229.159.126"
     range: "139.229.159.1 139.229.159.125"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   users:
     network: "139.229.162.0"
     mask: "255.255.255.128"
     gateway: "139.229.162.126"
     range:
       - "139.229.162.28 139.229.162.37"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   users_163:
     network: "139.229.163.0"
     mask: "255.255.255.0"
@@ -78,14 +71,14 @@ dhcp::pools:
       - "139.229.163.1 139.229.163.239"
       # 139.229.163.240/28 is reserved for the network gateway and static
       # IP addresses.
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
   control_auxtel:
     network: "139.229.170.0"
     mask: "255.255.255.0"
     gateway: "139.229.170.254"
     range:
       - "139.229.170.64 139.229.170.95"
-    search_domains: *dnsdomain
+    search_domains: "%{alias('dhcp::dnsdomain')}"
 dhcp::hosts:
   M207-gs-plotter-01.cp.cl.lsst.org:
     comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
