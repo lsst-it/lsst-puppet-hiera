@@ -18,10 +18,6 @@
 # Grafana                       : 139.229.162.105
 # Puppet Master                 : 139.229.160.239 (Not deployed yet)
 
-chrony::servers:
-  - "ntp.shoa.cl"
-  - "1.cl.pool.ntp.org"
-  - "1.south-america.pool.ntp.org"
 
 rsyslog::client::global_config:
   workDirectory:
@@ -102,15 +98,33 @@ telegraf::quiet: false
 telegraf::hostname: ""
 telegraf::omit_hostname: false
 
-resolv_conf::nameservers:
-  - "139.229.162.22"  # dns1
-  - "139.229.162.87"  # dns2
-  - "208.67.222.222"  # These servers have high latency but avoid issues with bad reverse DNS. Change these later.
-  - "208.67.220.220"
-resolv_conf::searchpath:
+# The following keys are shared between the `dhcp` and `resolv_conf` classes:
+# - dhcp::dnsdomain
+# - dhcp::nameservers
+# - dhcp::ntpservers
+#
+# @see clusters/corecp/dhcp.yaml
+
+# resolv.conf allows for a maximum of 6 search domains with a max length of 256
+# characters.
+# @see man 5 resolv.conf
+dhcp::dnsdomain: &dnsdomains
   - "cp.lsst.org"
-  - "tuc.lsst.cloud"
-  - "lsst.cloud"
+  - "cp.cl.lsst.org"
+  - "cl.lsst.org"
   - "lsst.org"
-  - "tuc.noao.edu"
-  - "noao.edu"
+  - "lsst.local"
+# resolv.conf allows for a maximum of 3 nameservers
+# @see man 5 resolv.conf
+dhcp::nameservers: &nameservers
+  - "139.229.162.22"  # dns1.cp.lsst.org
+  - "139.229.162.87"  # dns2.cp.lsst.org
+  - "208.67.222.222"  # resolver1.opendns.com
+dhcp::ntpservers: &ntpservers
+  - "ntp.shoa.cl"
+  - "1.cl.pool.ntp.org"
+  - "1.south-america.pool.ntp.org"
+
+chrony::servers: *ntpservers
+resolv_conf::nameservers: *nameservers
+resolv_conf::searchpath: *dnsdomains
