@@ -21,7 +21,7 @@
 
 rsyslog::client::global_config:
   workDirectory:
-    value: "/var/log"
+    value: "/var/lib/rsyslog"
   maxMessageSize:
     value: "64k"
   preserveFQDN:
