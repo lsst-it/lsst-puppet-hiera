@@ -16,7 +16,7 @@ network::interfaces_hash:
   bond0:
     type: "Bond"
     bootproto: "none"
-    ipaddress: "139.229.170.59"
+    ipaddress: "139.229.178.59"
     netmask: "255.255.255.0"
     bonding_opts: "mode=4 miimon=100"
     bonding_master: "yes"
