@@ -31,7 +31,7 @@ rsyslog::client::actions:
     type: "omfwd"
     facility: "*.*;auth,authpriv.none"
     config:
-      Target: "gs-graylog-node-01.cp.cl.lsst.org"
+      Target: "gs-graylog-node-01.cp.lsst.org"
       Port: 5514
       Protocol: "udp"
   all_logs_local:
