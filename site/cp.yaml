@@ -34,13 +34,6 @@ rsyslog::client::actions:
       Target: "gs-graylog-node-01.cp.cl.lsst.org"
       Port: 5514
       Protocol: "udp"
-  backup_log_server:
-    type: "omfwd"
-    facility: "*.*;auth,authpriv.none"
-    config:
-      Target: "gs-graylog-node-01.ls.cl.lsst.org"
-      Port: 5514
-      Protocol: "udp"
   all_logs_local:
     type: "omfwd"
     facility: "*.*;auth,authpriv.none"
