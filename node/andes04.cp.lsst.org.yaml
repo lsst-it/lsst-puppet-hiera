@@ -4,6 +4,6 @@ network::interfaces_hash:
     hwaddr: "a0:36:9f:c7:6c:aa"
   p2p2:
     hwaddr: "a0:36:9f:c7:6c:a8"
-  bond0.1300:
+  bond0.1301:
     ipaddr: "139.229.167.5"
     netmask: "255.255.255.0"

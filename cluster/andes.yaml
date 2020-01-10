@@ -25,6 +25,8 @@ network::interfaces_hash:
     bonding_master: "yes"
     nm_controlled: "no"
   bond0.1300:
+    ensure: "absent"
+  bond0.1301:
     vlan: "yes"
     bootproto: "none"
     nm_controlled: "no"
