@@ -20,49 +20,15 @@
 
 easy_ipa::ipa_master_fqdn: "ipa1.cp.lsst.org"
 
-rsyslog::client::global_config:
+# Rsyslog configuration is based on the default rsyslog.conf shipping with CentOS 7.7
+rsyslog::config::global_config:
   workDirectory:
-    value: "/var/log"
+    value: "/var/lib/rsyslog"
   maxMessageSize:
     value: "64k"
   preserveFQDN:
     value: "on"
-rsyslog::client::actions:
-  primary_log_server:
-    type: "omfwd"
-    facility: "*.*;auth,authpriv.none"
-    config:
-      Target: "gs-graylog-node-01.cp.cl.lsst.org"
-      Port: 5514
-      Protocol: "udp"
-  backup_log_server:
-    type: "omfwd"
-    facility: "*.*;auth,authpriv.none"
-    config:
-      Target: "gs-graylog-node-01.ls.cl.lsst.org"
-      Port: 5514
-      Protocol: "udp"
-  all_logs_local:
-    type: "omfwd"
-    facility: "*.*;auth,authpriv.none"
-    config:
-      file: "/var/log/messages"
-  mail_logs:
-    type: "omfwd"
-    facility: "mail.*"
-    config:
-      file: "-/var/log/maillog"
-  cron_logs:
-    type: "omfwd"
-    facility: "cron.*"
-    config:
-      file: "/var/log/cron"
-  boot_logs:
-    type: "omfwd"
-    facility: "local7.*"
-    config:
-      file: "-/var/log/boot.log"
-rsyslog::client::modules:
+rsyslog::config::modules:
   imuxsock: {}
   imjournal:
     config:
@@ -72,9 +38,51 @@ rsyslog::client::modules:
       Ratelimit.Burst: 20000
   imklog: {}
   immark: {}
-  imfile:
+  imfile: {}
+rsyslog::config::actions:
+  graylog:
+    type: "omfwd"
+    facility: "*.*;auth,authpriv.none"
     config:
-      PollingInterval: 10
+      Target: "gs-graylog-node-01.cp.lsst.org"
+      Port: 5514
+      Protocol: "udp"
+  # Log anything (except mail) of level info or higher.
+  # Don't log private authentication messages!
+  messages:
+    type: "omfile"
+    facility: "*.info;mail.none;authpriv.none;cron.none"
+    config:
+      file: "/var/log/messages"
+  # The authpriv file has restricted access.
+  secure:
+    type: "omfile"
+    facility: "authpriv.*"
+    config:
+      file: "/var/log/secure"
+  # Everybody gets emergency messages
+  emerg:
+    type: "omusrmsg"
+    facility: "*.emerg"
+    config:
+      users: "*"
+  maillog:
+    type: "omfile"
+    facility: "mail.*"
+    config:
+      file: "-/var/log/maillog"
+  cron:
+    type: "omfile"
+    facility: "cron.*"
+    config:
+      file: "/var/log/cron"
+  # local7 does not appear to be used by CentOS 7, but for the sake of
+  # consistency we preserve it to match the CentOS configuration.
+  boot:
+    type: "omfile"
+    facility: "local7.*"
+    config:
+      file: "-/var/log/boot.log"
 
 # Telegraf common configuration
 monitoring_enabled: true
