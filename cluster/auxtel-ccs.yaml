@@ -1,4 +1,5 @@
 ---
+# XXX these values should be migrated to the site layer
 tuned::profile: "latency-performance"
 selinux::mode: "disabled"
 firewall::ensure: "stopped"
