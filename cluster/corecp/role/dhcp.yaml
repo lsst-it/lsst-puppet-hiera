@@ -132,3 +132,7 @@ dhcp::hosts:
   cloud1:  # DIMM Raspberry Pi, DIMM switch port 13
     mac: "b8:27:eb:b9:36:fa"
     ip: "139.229.170.198"
+  backup-wind-sensor:
+    comment: "https://jira.lsstcorp.org/browse/IT-1666"
+    mac: "00:40:9d:7f:0b:f2"
+    ip: "139.229.170.58"
