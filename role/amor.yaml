@@ -3,6 +3,16 @@ classes:
   - "profile::core::common"
   - "docker"
   - "python"
+  - "docker::networks"
+
+docker::networks::networks:
+  control-network:
+    ensure: "present"
+    driver: "macvlan"
+    subnet: "139.229.167.0/24"
+    gateway: "139.229.167.254"
+    options: ["parent=bond0"]
+
 # disabling the kernel version check is needed on el7
 docker::overlay2_override_kernel_check: true
 docker::storage_driver: "overlay2"
@@ -22,3 +32,4 @@ python::python_pips:
     ensure: "1.25.0"
 packages:
   - "git"
+firewall::ensure: "stopped"
