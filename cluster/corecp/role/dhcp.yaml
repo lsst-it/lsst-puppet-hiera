@@ -79,6 +79,13 @@ dhcp::pools:
     range:
       - "139.229.170.64 139.229.170.95"
     search_domains: "%{alias('dhcp::dnsdomain')}"
+  it_ipmi_srv:
+    network: "10.18.3.0"
+    mask: "255.255.255.0"
+    gateway: "10.18.3.254"
+    range:
+      - "10.18.3.1 10.18.3.31"
+    search_domains: "%{alias('dhcp::dnsdomain')}"
 dhcp::hosts:
   M207-gs-plotter-01.cp.cl.lsst.org:
     comment: "Plotter configuration: https://jira.lsstcorp.org/browse/IHS-1600"
