@@ -67,3 +67,4 @@ sysctl::values::args:
   net.ipv4.conf.default.rp_filter:
     value: 0
     target: "/etc/sysctl.d/92-rp_filter.conf"
+profile::core::puppet_master::smee_url: "https://smee.io/lpxrggGObEn5YTA"
