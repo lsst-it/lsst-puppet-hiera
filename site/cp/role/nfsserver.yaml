@@ -1,0 +1,16 @@
+---
+classes:
+  - "profile::core::common"
+  - "profile::core::nfsserver"
+nfs::server_enabled: true
+nfs::client_enabled: false
+nfs::nfs_v4: true
+nfs::nfs_v4_idmap_domain: "%{::domain}"
+nfs::nfs_v4_export_root: "/export"
+nfs::nfsv4_bindmount_enable: true
+nfs::nfs_v4_export_root_clients: "139.229.170.0/24(rw,fsid=root,insecure,no_subtree_check,async,root_squash)"
+nfs::nfs_exports_global:
+  /data/home: {}
+  /data/lsstdata: {}
+  /data/project: {}
+  /data/scratch: {}
