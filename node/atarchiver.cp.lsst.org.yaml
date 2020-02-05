@@ -1,0 +1,10 @@
+---
+classes:
+  - "profile::core::nfsclient"
+
+nfs::client_enabled: true
+nfs::client_mounts:
+  /net/lsstdata:
+    share: "lsstdata"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
