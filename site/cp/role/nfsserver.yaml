@@ -4,10 +4,6 @@ classes:
   - "profile::core::nfsserver"
   - "profile::core::nfsclient"
 
-# NFS client and server
-nfs::nfs_v4: true
-nfs::nfs_v4_idmap_domain: "%{::domain}"
-
 # Server configuration
 nfs::server_enabled: true
 nfs::nfs_v4_export_root_clients: "139.229.170.0/24(rw,fsid=root,insecure,no_subtree_check,async,root_squash)"
