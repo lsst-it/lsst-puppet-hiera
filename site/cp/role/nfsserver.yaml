@@ -2,15 +2,36 @@
 classes:
   - "profile::core::common"
   - "profile::core::nfsserver"
-nfs::server_enabled: true
-nfs::client_enabled: false
+  - "profile::core::nfsclient"
+
+# NFS client and server
 nfs::nfs_v4: true
 nfs::nfs_v4_idmap_domain: "%{::domain}"
-nfs::nfs_v4_export_root: "/export"
-nfs::nfsv4_bindmount_enable: true
+
+# Server configuration
+nfs::server_enabled: true
 nfs::nfs_v4_export_root_clients: "139.229.170.0/24(rw,fsid=root,insecure,no_subtree_check,async,root_squash)"
 nfs::nfs_exports_global:
-  /data/home: {}
-  /data/lsstdata: {}
-  /data/project: {}
-  /data/scratch: {}
+  /data/home: &exportopts
+    clients: "139.229.170.0/24(rw,nohide,insecure,no_subtree_check,async,root_squash)"
+  /data/lsstdata:
+    <<: *exportopts
+  /data/project:
+    <<: *exportopts
+  /data/scratch:
+    <<: *exportopts
+
+nfs::client_enabled: true
+nfs::client_mounts:
+  /net/project:
+    share: "project"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
+  /net/scratch:
+    share: "scratch"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
+  /net/lsstdata:
+    share: "lsstdata"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
