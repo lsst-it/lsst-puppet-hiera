@@ -1,6 +1,7 @@
 ---
 classes:
-  "network"
+  - "profile::core::nfsclient"
+#  - "network"
 
 network::mroutes_hash:
   p2p1:
@@ -10,3 +11,18 @@ network::mroutes_hash:
     routes:
       "139.229.178.0/24": "139.229.170.254"
       "139.229.167.0/24": "139.229.170.254"
+
+nfs::client_enabled: true
+nfs::client_mounts:
+  /net/project:
+    share: "project"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
+  /net/scratch:
+    share: "scratch"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
+  /net/lsstdata:
+    share: "lsstdata"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
