@@ -1,9 +1,0 @@
----
-ccs_systemd_units:
-  bonn-shutter.service:
-    serviceDescription: "BONN Shutter"
-    serviceCommand: "bonn-shutter"
-monitored_services:
-  - "bonn-shutter"
-ccsApplications:
-  - executable.bonn-shutter: "org-lsst-ccs-ats-software-main"
