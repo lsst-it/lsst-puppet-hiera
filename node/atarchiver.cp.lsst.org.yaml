@@ -16,3 +16,7 @@ nfs::client_mounts:
     share: "lsstdata"
     server: "nfs1.cp.lsst.org"
     atboot: true
+  /net/home:
+    share: "home"
+    server: "nfs1.cp.lsst.org"
+    atboot: true
