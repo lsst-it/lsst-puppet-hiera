@@ -1,9 +1,0 @@
----
-ccs_systemd_units:
-  ats-power.service:
-    serviceDescription: "ATS Power Subsystem"
-    serviceCommand: "ats-power"
-monitored_services:
-  - "ats-power"
-ccsApplications:
-  - "executable.bonn-shutter": "org-lsst-ccs-ats-software-main"
