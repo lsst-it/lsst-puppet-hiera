@@ -25,16 +25,6 @@ chrony::servers:
   - "1.us.pool.ntp.org"
   - "2.us.pool.ntp.org"
 
-firewalld_status: "running"
-lsst_firewall_default_zone: "public"
-lsst_firewall_default_target: "DROP"
-lsst_firewall_default_sources:
-  - 140.252.32.0/22
-  - 140.252.115.0/24  # Steward Observatory
-  - 140.252.201.0/24  # DMZ
-  - 139.229.162.0/25  # Cerro Pachon
-  - 139.229.136.0/24  # La Serena Base
-
 #=============================================================================
 # Telegraf common configuration
 

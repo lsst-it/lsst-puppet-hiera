@@ -10,15 +10,6 @@
 # Grafana                       : 139.229.136.37
 # InfluxDB Master               : 139.229.136.38
 # Puppet Master                 : 139.229.136.22 (Not deployed yet)
-firewalld_status: "running"
-lsst_firewall_default_zone: "public"
-lsst_firewall_default_target: "DROP"
-lsst_firewall_default_sources:
-  - "139.229.136.0/24"
-  - "139.229.162.0/24"
-  - "140.252.32.0/23"
-  - "140.252.90.64/27"  # VPN
-
 rsyslog::client::global_config:
   workDirectory:
     value: "/var/log"
