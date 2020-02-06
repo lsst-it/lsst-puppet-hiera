@@ -169,3 +169,11 @@ accounts::user_list:
   athebo_b:  # backup access in case LDAP fails
     sshkeys:
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE8XVjITG6l2q37rDrL037aB2vDr0HsdXAl1ffmhj9TK adrien@faraday"
+  lssttech:
+    ensure: "absent"
+    managehome: true
+    purge_user_home: true
+  sysadmin:
+    ensure: "absent"
+    managehome: true
+    purge_user_home: true
