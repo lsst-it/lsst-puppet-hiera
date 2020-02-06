@@ -30,4 +30,3 @@ nfs::client_mounts:
     share: "lsstdata"
     server: "nfs1.cp.lsst.org"
     atboot: true
-    options_nfsv4: "ro,tcp,nolock,rsize=32768,wsize=32768,intr,noatime,actimeo=3"
