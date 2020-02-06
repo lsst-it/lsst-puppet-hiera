@@ -12,6 +12,8 @@ network::mroutes_hash:
       "139.229.178.0/24": "139.229.170.254"
       "139.229.167.0/24": "139.229.170.254"
 
+nfs::nfs_v4: true
+nfs::nfs_v4_idmap_domain: "%{::domain}"
 nfs::client_enabled: true
 nfs::client_mounts:
   /net/project:
@@ -26,3 +28,4 @@ nfs::client_mounts:
     share: "lsstdata"
     server: "nfs1.cp.lsst.org"
     atboot: true
+    options_nfsv4: "ro,tcp,nolock,rsize=32768,wsize=32768,intr,noatime,actimeo=3"
