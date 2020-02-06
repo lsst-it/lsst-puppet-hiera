@@ -1,5 +1,4 @@
 ---
-motd: "Server installed without custom motd\n"
 timezone::timezone: "UTC"
 chrony::leapsectz: "right/UTC"
 ssh::storeconfigs_enabled: false

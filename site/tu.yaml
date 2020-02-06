@@ -20,16 +20,6 @@ lookup_options:
     merge:
       strategy: "deep"
 
-motd: |
-  _    ___ ___ _____
-  | |  / __/ __|_   _|
-  | |__\__ \__ \ | |
-  |____|___/___/ |_|
-  Server controlled by puppet, configurations may be overwritten.
-  Server configured to use Tucson configuration.
-  Syslog messages sent to graylog, metrics to inflluxdb
-  Any questions or suggestions forward it to IT.
-
 chrony::servers:
   - "0.us.pool.ntp.org"
   - "1.us.pool.ntp.org"
