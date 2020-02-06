@@ -67,7 +67,6 @@ rsyslog::client::modules:
       PollingInterval: 10
 #=============================================================================
 # Telegraf common configuration
-monitoring_enabled: true
 telegraf::global_tags:
   service: "%{::service}"
   cluster: "%{::cluster}"
