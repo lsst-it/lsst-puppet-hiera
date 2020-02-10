@@ -176,3 +176,9 @@ accounts::user_list:
     ensure: "absent"
     managehome: true
     purge_user_home: true
+
+# Use NFSv4 on NFS enabled hosts.
+# @see site/cp/role/nfsserver.yaml
+nfs::nfs_v4: true
+nfs::nfs_v4_client: true
+nfs::nfs_v4_idmap_domain: "%{::domain}"
