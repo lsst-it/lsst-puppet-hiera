@@ -23,7 +23,7 @@ dns::additional_directives:
   - "    channel queries_syslog {"
   - "        severity info;"
   - "        print-category yes;"
-  - "        syslog daemon;"
+  - "        syslog local6;"
   - "    };"
   - ""
   - "    category queries {"
