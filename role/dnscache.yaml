@@ -1,6 +1,0 @@
----
-classes:
-  - "profile::core::common"
-  - "dns"
-dns::forward: "only"
-dns::listen_on_v6: false
