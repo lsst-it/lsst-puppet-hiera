@@ -49,9 +49,12 @@ rsyslog::config::actions:
       Protocol: "udp"
   # Log anything (except mail) of level info or higher.
   # Don't log private authentication messages!
+  #
+  # local6 is used for logs that should only be forwarded to a central log
+  # server and should never be stored locally. See IT-1734.
   messages:
     type: "omfile"
-    facility: "*.info;mail.none;authpriv.none;cron.none"
+    facility: "*.info;mail.none;authpriv.none;cron.none;local6.none"
     config:
       file: "/var/log/messages"
   # The authpriv file has restricted access.
